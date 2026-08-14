@@ -1,0 +1,48 @@
+<section class="featured-collection color-{{ section.settings.color_scheme }} section-padding" data-section-id="{{ section.id }}" data-section-type="featured-collection">
+  <div class="page-width">
+    <div class="featured-collection__header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="section-heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      <div class="carousel-nav">
+        <button type="button" class="carousel-nav__button carousel-nav__button--prev" data-carousel-prev aria-label="{{ 'accessibility.previous_slide' | t }}">
+          {%- render 'icon', icon: 'chevron-left' -%}
+        </button>
+        <button type="button" class="carousel-nav__button carousel-nav__button--next" data-carousel-next aria-label="{{ 'accessibility.next_slide' | t }}">
+          {%- render 'icon', icon: 'chevron-right' -%}
+        </button>
+      </div>
+    </div>
+
+    {%- if section.settings.collection != blank -%}
+      <div class="carousel" data-carousel>
+        <ul class="carousel__track" data-carousel-track>
+          {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+            <li class="carousel__slide">
+              {%- render 'product-card', product: product, enable_quick_add: section.settings.enable_quick_add -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.featured-collection.name",
+  "settings": [
+    { "type": "text", "id": "heading", "default": "Los más vendidos", "label": "t:sections.featured-collection.settings.heading.label" },
+    { "type": "collection", "id": "collection", "label": "t:sections.featured-collection.settings.collection.label" },
+    { "type": "range", "id": "products_to_show", "min": 4, "max": 16, "step": 1, "default": 8, "label": "t:sections.featured-collection.settings.products_to_show.label" },
+    { "type": "checkbox", "id": "enable_quick_add", "default": true, "label": "t:sections.featured-collection.settings.enable_quick_add.label" },
+    { "type": "color_scheme", "id": "color_scheme", "default": "scheme-light", "label": "t:sections.featured-collection.settings.color_scheme.label" }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": { "heading": "Los más vendidos", "products_to_show": 8, "enable_quick_add": true, "color_scheme": "scheme-light" }
+    }
+  ]
+}
+{% endschema %}

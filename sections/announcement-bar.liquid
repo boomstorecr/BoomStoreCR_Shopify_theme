@@ -1,0 +1,31 @@
+{%- if section.settings.enable -%}
+  <div class="announcement-bar color-{{ section.settings.color_scheme }}" data-section-id="{{ section.id }}" data-section-type="announcement-bar">
+    <p class="announcement-bar__text">
+      <span lang="es">{{ section.settings.text }}</span>
+      {%- if section.settings.text_en != blank -%}
+        <span class="announcement-bar__divider" aria-hidden="true"> &middot; </span>
+        <span lang="en">{{ section.settings.text_en }}</span>
+      {%- endif -%}
+    </p>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "settings": [
+    { "type": "checkbox", "id": "enable", "default": true, "label": "t:sections.announcement-bar.settings.enable.label" },
+    { "type": "text", "id": "text", "default": "Envío gratis en pedidos mayores a ₡50,000", "label": "t:sections.announcement-bar.settings.text.label" },
+    { "type": "text", "id": "text_en", "default": "Free shipping on orders over ₡50,000", "label": "t:sections.announcement-bar.settings.text_en.label" },
+    { "type": "color_scheme", "id": "color_scheme", "default": "scheme-dark", "label": "t:sections.announcement-bar.settings.color_scheme.label" }
+  ],
+  "default": {
+    "settings": {
+      "enable": true,
+      "text": "Envío gratis en pedidos mayores a ₡50,000",
+      "text_en": "Free shipping on orders over ₡50,000",
+      "color_scheme": "scheme-dark"
+    }
+  }
+}
+{% endschema %}

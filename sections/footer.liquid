@@ -1,0 +1,83 @@
+<footer class="site-footer color-{{ section.settings.color_scheme }}" data-section-id="{{ section.id }}" data-section-type="footer">
+  <div class="site-footer__container page-width">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <span class="site-footer__logo-text">{{ shop.name }}</span>
+        <p class="site-footer__tagline">{{ 'footer.follow_us' | t }}</p>
+        <div class="site-footer__social">
+          {%- if section.settings.instagram_url != blank -%}
+            <a href="{{ section.settings.instagram_url }}" class="site-footer__social-link" aria-label="Instagram" target="_blank" rel="noopener">{%- render 'icon', icon: 'instagram' -%}</a>
+          {%- endif -%}
+          {%- if section.settings.facebook_url != blank -%}
+            <a href="{{ section.settings.facebook_url }}" class="site-footer__social-link" aria-label="Facebook" target="_blank" rel="noopener">{%- render 'icon', icon: 'facebook' -%}</a>
+          {%- endif -%}
+          {%- if section.settings.tiktok_url != blank -%}
+            <a href="{{ section.settings.tiktok_url }}" class="site-footer__social-link" aria-label="TikTok" target="_blank" rel="noopener">{%- render 'icon', icon: 'tiktok' -%}</a>
+          {%- endif -%}
+          {%- if section.settings.whatsapp_url != blank -%}
+            <a href="{{ section.settings.whatsapp_url }}" class="site-footer__social-link" aria-label="WhatsApp" target="_blank" rel="noopener">{%- render 'icon', icon: 'whatsapp' -%}</a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- if section.settings.shop_menu != blank -%}
+        <div class="site-footer__column">
+          <h3 class="site-footer__heading">{{ 'footer.shop_heading' | t }}</h3>
+          <ul class="site-footer__links">
+            {%- for link in section.settings.shop_menu.links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.company_menu != blank -%}
+        <div class="site-footer__column">
+          <h3 class="site-footer__heading">{{ 'footer.company_heading' | t }}</h3>
+          <ul class="site-footer__links">
+            {%- for link in section.settings.company_menu.links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.show_payment_icons and shop.enabled_payment_types != blank -%}
+      <div class="site-footer__payment">
+        <span class="site-footer__payment-label">{{ 'footer.payment_methods' | t }}</span>
+        <ul class="site-footer__payment-icons">
+          {%- for type in shop.enabled_payment_types -%}
+            <li>{{ type | payment_type_svg_tag: class: 'site-footer__payment-icon' }}</li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+
+    <div class="site-footer__bottom">
+      <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'footer.copyright' | t }}</p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "t:sections.footer.name",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "default": "scheme-dark", "label": "t:sections.footer.settings.color_scheme.label" },
+    { "type": "link_list", "id": "shop_menu", "label": "t:sections.footer.settings.shop_menu.label" },
+    { "type": "link_list", "id": "company_menu", "label": "t:sections.footer.settings.company_menu.label" },
+    { "type": "url", "id": "instagram_url", "label": "t:sections.footer.settings.instagram_url.label" },
+    { "type": "url", "id": "facebook_url", "label": "t:sections.footer.settings.facebook_url.label" },
+    { "type": "url", "id": "tiktok_url", "label": "t:sections.footer.settings.tiktok_url.label" },
+    { "type": "url", "id": "whatsapp_url", "label": "t:sections.footer.settings.whatsapp_url.label" },
+    { "type": "checkbox", "id": "show_payment_icons", "default": true, "label": "t:sections.footer.settings.show_payment_icons.label" }
+  ],
+  "default": {
+    "settings": {
+      "color_scheme": "scheme-dark",
+      "show_payment_icons": true
+    }
+  }
+}
+{% endschema %}

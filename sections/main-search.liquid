@@ -1,0 +1,42 @@
+<div class="search-section color-scheme-light section-padding" data-section-id="{{ section.id }}" data-section-type="main-search">
+  <div class="page-width">
+    <form action="{{ routes.search_url }}" method="get" role="search" class="search-section__form">
+      <input type="hidden" name="type" value="product">
+      <label for="SearchInput" class="visually-hidden">{{ 'general.search.placeholder' | t }}</label>
+      <input
+        type="search"
+        name="q"
+        id="SearchInput"
+        class="search-section__input"
+        value="{{ search.terms | escape }}"
+        placeholder="{{ 'general.search.placeholder' | t }}"
+      >
+      <button type="submit" class="button button--primary">{{ 'general.search.submit' | t }}</button>
+    </form>
+
+    {%- if search.performed -%}
+      {%- if search.results_count > 0 -%}
+        <h1 class="search-section__title">{{ 'general.search.results_for' | t: terms: search.terms }}</h1>
+        <ul class="product-grid product-grid--4-col">
+          {%- for item in search.results -%}
+            {%- if item.object_type == 'product' -%}
+              <li>{%- render 'product-card', product: item, enable_quick_add: true -%}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+        {%- if search.pages > 1 -%}
+          {%- render 'pagination', paginate: search -%}
+        {%- endif -%}
+      {%- else -%}
+        <p class="search-section__no-results">{{ 'general.search.no_results' | t: terms: search.terms }}</p>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-search.name",
+  "settings": []
+}
+{% endschema %}

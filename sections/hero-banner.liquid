@@ -1,0 +1,53 @@
+<section class="hero color-{{ section.settings.color_scheme }}" data-section-id="{{ section.id }}" data-section-type="hero-banner">
+  {%- if section.settings.image != blank -%}
+    <div class="hero__image-wrapper">
+      <img
+        src="{{ section.settings.image | image_url: width: 1800 }}"
+        srcset="{{ section.settings.image | image_url: width: 800 }} 800w, {{ section.settings.image | image_url: width: 1200 }} 1200w, {{ section.settings.image | image_url: width: 1800 }} 1800w"
+        sizes="100vw"
+        alt="{{ section.settings.image.alt | default: section.settings.heading }}"
+        class="hero__image"
+        loading="eager"
+        width="{{ section.settings.image.width }}"
+        height="{{ section.settings.image.height }}"
+      >
+      <div class="hero__overlay"></div>
+    </div>
+  {%- endif -%}
+  <div class="hero__content page-width">
+    {%- if section.settings.heading != blank -%}
+      <h1 class="hero__heading">{{ section.settings.heading }}</h1>
+    {%- endif -%}
+    {%- if section.settings.subheading != blank -%}
+      <p class="hero__subheading">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+    {%- if section.settings.button_label != blank -%}
+      <a href="{{ section.settings.button_link | default: '#' }}" class="button button--primary hero__button">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.hero-banner.name",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "t:sections.hero-banner.settings.image.label" },
+    { "type": "text", "id": "heading", "default": "Board Games Costa Rica", "label": "t:sections.hero-banner.settings.heading.label" },
+    { "type": "textarea", "id": "subheading", "default": "Los mejores juegos de mesa para toda la familia, entregados en toda Costa Rica.", "label": "t:sections.hero-banner.settings.subheading.label" },
+    { "type": "text", "id": "button_label", "default": "Comprar ahora", "label": "t:sections.hero-banner.settings.button_label.label" },
+    { "type": "url", "id": "button_link", "label": "t:sections.hero-banner.settings.button_link.label" },
+    { "type": "color_scheme", "id": "color_scheme", "default": "scheme-playful", "label": "t:sections.hero-banner.settings.color_scheme.label" }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.hero-banner.name",
+      "settings": {
+        "heading": "Board Games Costa Rica",
+        "subheading": "Los mejores juegos de mesa para toda la familia, entregados en toda Costa Rica.",
+        "button_label": "Comprar ahora",
+        "color_scheme": "scheme-playful"
+      }
+    }
+  ]
+}
+{% endschema %}

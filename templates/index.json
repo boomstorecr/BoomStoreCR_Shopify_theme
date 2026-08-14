@@ -1,0 +1,58 @@
+{
+  "sections": {
+    "hero_banner": {
+      "type": "hero-banner",
+      "settings": {
+        "heading": "Board Games Costa Rica",
+        "subheading": "Los mejores juegos de mesa para toda la familia, entregados en toda Costa Rica.",
+        "button_label": "Comprar ahora",
+        "button_link": "shopify://collections/all",
+        "color_scheme": "scheme-playful"
+      }
+    },
+    "collection_tiles": {
+      "type": "collection-tiles",
+      "blocks": {
+        "tile-1": { "type": "collection-tile", "settings": { "title": "Estrategia", "link": "shopify://collections/all" } },
+        "tile-2": { "type": "collection-tile", "settings": { "title": "Familiares", "link": "shopify://collections/all" } },
+        "tile-3": { "type": "collection-tile", "settings": { "title": "Fiesta", "link": "shopify://collections/all" } },
+        "tile-4": { "type": "collection-tile", "settings": { "title": "Cartas", "link": "shopify://collections/all" } }
+      },
+      "block_order": ["tile-1", "tile-2", "tile-3", "tile-4"],
+      "settings": {
+        "heading": "Compra por categoría",
+        "color_scheme": "scheme-light"
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "heading": "Los más vendidos",
+        "products_to_show": 8,
+        "enable_quick_add": true,
+        "color_scheme": "scheme-light"
+      }
+    },
+    "value_props": {
+      "type": "value-props",
+      "blocks": {
+        "prop-1": { "type": "icon-with-text", "settings": { "icon": "dice", "heading": "Esenciales para noche de juegos", "text": "Todo lo que necesitas para una noche de juegos inolvidable." } },
+        "prop-2": { "type": "icon-with-text", "settings": { "icon": "gift", "heading": "Nuevos lanzamientos cada mes", "text": "Descubre los últimos juegos de mesa cada mes." } },
+        "prop-3": { "type": "icon-with-text", "settings": { "icon": "people", "heading": "Diversión para toda la familia", "text": "Juegos para todas las edades y ocasiones." } }
+      },
+      "block_order": ["prop-1", "prop-2", "prop-3"],
+      "settings": {
+        "color_scheme": "scheme-playful"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Únete a nuestra comunidad",
+        "text": "Recibe noticias, ofertas y lanzamientos directamente en tu correo.",
+        "color_scheme": "scheme-dark"
+      }
+    }
+  },
+  "order": ["hero_banner", "collection_tiles", "featured_collection", "value_props", "newsletter"]
+}

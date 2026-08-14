@@ -1,0 +1,75 @@
+{
+  "general": {
+    "search": {
+      "placeholder": "Buscar productos",
+      "submit": "Buscar",
+      "results_for": "Resultados para \"{{ terms }}\"",
+      "no_results": "No se encontraron resultados para \"{{ terms }}\". Intenta con otra búsqueda."
+    },
+    "404": {
+      "title": "Página no encontrada",
+      "subtext": "Lo sentimos, la página que buscas no existe.",
+      "link": "Volver al inicio"
+    },
+    "newsletter": {
+      "email_placeholder": "Tu correo electrónico",
+      "submit": "Suscribirme",
+      "success": "¡Gracias por suscribirte!"
+    },
+    "password_page": {
+      "password": "Contraseña",
+      "enter": "Entrar",
+      "wrong_password": "La contraseña ingresada es incorrecta."
+    }
+  },
+  "header": {
+    "menu": "Menú",
+    "search": "Buscar",
+    "cart": "Carrito",
+    "account": "Cuenta"
+  },
+  "footer": {
+    "shop_heading": "Tienda",
+    "company_heading": "Compañía",
+    "follow_us": "Síguenos en redes sociales",
+    "payment_methods": "Métodos de pago",
+    "copyright": "Todos los derechos reservados."
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Agregar al carrito",
+      "quick_add": "Agregar rápido",
+      "sold_out": "Agotado",
+      "sale": "Oferta",
+      "vendor": "Marca",
+      "view_details": "Ver detalles",
+      "regular_price": "Precio regular",
+      "sale_price": "Precio de oferta",
+      "quantity": "Cantidad",
+      "unavailable": "No disponible"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Tu carrito",
+      "empty": "Tu carrito está vacío",
+      "subtotal": "Subtotal",
+      "checkout": "Finalizar compra",
+      "remove": "Eliminar",
+      "quantity": "Cantidad",
+      "update": "Actualizar carrito",
+      "continue_shopping": "Seguir comprando"
+    }
+  },
+  "pagination": {
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "page": "Página {{ number }}"
+  },
+  "accessibility": {
+    "skip_to_content": "Saltar al contenido",
+    "close": "Cerrar",
+    "next_slide": "Siguiente producto",
+    "previous_slide": "Producto anterior"
+  }
+}

@@ -1,0 +1,65 @@
+<div class="cart-section color-scheme-light section-padding" data-section-id="{{ section.id }}" data-section-type="main-cart">
+  <div class="page-width">
+    <h1 class="cart-section__title">{{ 'cart.general.title' | t }}</h1>
+
+    {%- if cart.item_count == 0 -%}
+      <div class="cart-section__empty">
+        <p>{{ 'cart.general.empty' | t }}</p>
+        <a href="{{ routes.all_products_collection_url }}" class="button button--primary">{{ 'cart.general.continue_shopping' | t }}</a>
+      </div>
+    {%- else -%}
+      {%- form 'cart', cart, class: 'cart-section__form' -%}
+        <table class="cart-section__table">
+          <thead>
+            <tr>
+              <th>{{ 'products.product.view_details' | t }}</th>
+              <th>{{ 'cart.general.quantity' | t }}</th>
+              <th>{{ 'cart.general.subtotal' | t }}</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for item in cart.items -%}
+              <tr class="cart-section__row">
+                <td class="cart-section__item">
+                  {%- if item.image -%}
+                    <img src="{{ item.image | image_url: width: 150 }}" alt="{{ item.title }}" width="75" height="75" loading="lazy">
+                  {%- endif -%}
+                  <div>
+                    <a href="{{ item.url }}">{{ item.product.title }}</a>
+                    {%- if item.variant.title != 'Default Title' -%}
+                      <p class="cart-section__variant">{{ item.variant.title }}</p>
+                    {%- endif -%}
+                    {%- render 'price', product: item.variant, use_variant: false, price: item.final_price, compare_at_price: item.variant.compare_at_price -%}
+                  </div>
+                </td>
+                <td>
+                  <input type="number" name="updates[{{ item.key }}]" value="{{ item.quantity }}" min="0" class="cart-section__quantity-input" data-cart-quantity-input>
+                </td>
+                <td>{{ item.final_line_price | money }}</td>
+                <td>
+                  <a href="{{ item.url_to_remove }}" class="cart-section__remove" aria-label="{{ 'cart.general.remove' | t }}">&times;</a>
+                </td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+
+        <div class="cart-section__footer">
+          <p class="cart-section__subtotal">{{ 'cart.general.subtotal' | t }}: <strong>{{ cart.total_price | money }}</strong></p>
+          <div class="cart-section__actions">
+            <button type="submit" name="update" class="button button--secondary">{{ 'cart.general.update' | t }}</button>
+            <button type="submit" name="checkout" class="button button--primary">{{ 'cart.general.checkout' | t }}</button>
+          </div>
+        </div>
+      {%- endform -%}
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-cart.name",
+  "settings": []
+}
+{% endschema %}

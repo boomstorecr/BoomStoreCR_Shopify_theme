@@ -1,0 +1,129 @@
+{
+  "sections": {
+    "announcement-bar": {
+      "name": "Announcement bar",
+      "settings": {
+        "enable": { "label": "Show announcement bar" },
+        "text": { "label": "Message (Spanish)" },
+        "text_en": { "label": "Message (English)" },
+        "color_scheme": { "label": "Color scheme" }
+      }
+    },
+    "header": {
+      "name": "Header",
+      "settings": {
+        "logo": { "label": "Logo" },
+        "logo_width": { "label": "Logo width" },
+        "menu": { "label": "Menu" },
+        "color_scheme": { "label": "Color scheme" },
+        "sticky": { "label": "Sticky header" }
+      }
+    },
+    "footer": {
+      "name": "Footer",
+      "settings": {
+        "color_scheme": { "label": "Color scheme" },
+        "shop_menu": { "label": "Shop menu" },
+        "company_menu": { "label": "Company menu" },
+        "instagram_url": { "label": "Instagram URL" },
+        "facebook_url": { "label": "Facebook URL" },
+        "tiktok_url": { "label": "TikTok URL" },
+        "whatsapp_url": { "label": "WhatsApp URL" },
+        "show_payment_icons": { "label": "Show payment icons" }
+      }
+    },
+    "hero-banner": {
+      "name": "Hero banner",
+      "settings": {
+        "image": { "label": "Image" },
+        "heading": { "label": "Heading" },
+        "subheading": { "label": "Subheading" },
+        "button_label": { "label": "Button label" },
+        "button_link": { "label": "Button link" },
+        "color_scheme": { "label": "Color scheme" }
+      }
+    },
+    "collection-tiles": {
+      "name": "Collection tiles",
+      "settings": {
+        "heading": { "label": "Heading" },
+        "color_scheme": { "label": "Color scheme" }
+      },
+      "blocks": {
+        "collection-tile": {
+          "name": "Tile",
+          "settings": {
+            "image": { "label": "Image" },
+            "title": { "label": "Title" },
+            "link": { "label": "Link" },
+            "collection": { "label": "Collection" }
+          }
+        }
+      },
+      "presets": { "name": "Collection tiles" }
+    },
+    "featured-collection": {
+      "name": "Featured collection",
+      "settings": {
+        "heading": { "label": "Heading" },
+        "collection": { "label": "Collection" },
+        "products_to_show": { "label": "Products to show" },
+        "enable_quick_add": { "label": "Enable quick add" },
+        "color_scheme": { "label": "Color scheme" }
+      },
+      "presets": { "name": "Featured collection" }
+    },
+    "value-props": {
+      "name": "Value props",
+      "settings": {
+        "color_scheme": { "label": "Color scheme" }
+      },
+      "blocks": {
+        "icon-with-text": {
+          "name": "Icon with text",
+          "settings": {
+            "icon": { "label": "Icon" },
+            "heading": { "label": "Heading" },
+            "text": { "label": "Text" }
+          }
+        }
+      },
+      "presets": { "name": "Value props" }
+    },
+    "newsletter": {
+      "name": "Newsletter",
+      "settings": {
+        "heading": { "label": "Heading" },
+        "text": { "label": "Text" },
+        "color_scheme": { "label": "Color scheme" }
+      },
+      "presets": { "name": "Newsletter" }
+    },
+    "main-collection-banner": { "name": "Collection banner" },
+    "main-collection-product-grid": {
+      "name": "Product grid",
+      "settings": {
+        "products_per_page": { "label": "Products per page" },
+        "columns_desktop": { "label": "Desktop columns" }
+      }
+    },
+    "main-product": { "name": "Product page" },
+    "main-cart": { "name": "Cart" },
+    "main-search": { "name": "Search results" },
+    "main-404": { "name": "404 page" },
+    "main-page": { "name": "Page" },
+    "main-list-collections": { "name": "Collections list" }
+  },
+  "settings_schema": {
+    "typography": {
+      "name": "Typography",
+      "settings": {
+        "header_font": { "label": "Heading font" },
+        "body_font": { "label": "Body font" }
+      }
+    },
+    "colors": {
+      "name": "Color schemes"
+    }
+  }
+}

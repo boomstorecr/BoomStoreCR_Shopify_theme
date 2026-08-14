@@ -1,0 +1,129 @@
+{
+  "sections": {
+    "announcement-bar": {
+      "name": "Barra de anuncios",
+      "settings": {
+        "enable": { "label": "Mostrar barra de anuncios" },
+        "text": { "label": "Mensaje (español)" },
+        "text_en": { "label": "Mensaje (inglés)" },
+        "color_scheme": { "label": "Esquema de color" }
+      }
+    },
+    "header": {
+      "name": "Encabezado",
+      "settings": {
+        "logo": { "label": "Logo" },
+        "logo_width": { "label": "Ancho del logo" },
+        "menu": { "label": "Menú" },
+        "color_scheme": { "label": "Esquema de color" },
+        "sticky": { "label": "Encabezado fijo" }
+      }
+    },
+    "footer": {
+      "name": "Pie de página",
+      "settings": {
+        "color_scheme": { "label": "Esquema de color" },
+        "shop_menu": { "label": "Menú de tienda" },
+        "company_menu": { "label": "Menú de compañía" },
+        "instagram_url": { "label": "URL de Instagram" },
+        "facebook_url": { "label": "URL de Facebook" },
+        "tiktok_url": { "label": "URL de TikTok" },
+        "whatsapp_url": { "label": "URL de WhatsApp" },
+        "show_payment_icons": { "label": "Mostrar íconos de pago" }
+      }
+    },
+    "hero-banner": {
+      "name": "Banner principal",
+      "settings": {
+        "image": { "label": "Imagen" },
+        "heading": { "label": "Título" },
+        "subheading": { "label": "Subtítulo" },
+        "button_label": { "label": "Texto del botón" },
+        "button_link": { "label": "Enlace del botón" },
+        "color_scheme": { "label": "Esquema de color" }
+      }
+    },
+    "collection-tiles": {
+      "name": "Mosaico de colecciones",
+      "settings": {
+        "heading": { "label": "Título" },
+        "color_scheme": { "label": "Esquema de color" }
+      },
+      "blocks": {
+        "collection-tile": {
+          "name": "Mosaico",
+          "settings": {
+            "image": { "label": "Imagen" },
+            "title": { "label": "Título" },
+            "link": { "label": "Enlace" },
+            "collection": { "label": "Colección" }
+          }
+        }
+      },
+      "presets": { "name": "Mosaico de colecciones" }
+    },
+    "featured-collection": {
+      "name": "Colección destacada",
+      "settings": {
+        "heading": { "label": "Título" },
+        "collection": { "label": "Colección" },
+        "products_to_show": { "label": "Productos a mostrar" },
+        "enable_quick_add": { "label": "Habilitar agregar rápido" },
+        "color_scheme": { "label": "Esquema de color" }
+      },
+      "presets": { "name": "Colección destacada" }
+    },
+    "value-props": {
+      "name": "Beneficios",
+      "settings": {
+        "color_scheme": { "label": "Esquema de color" }
+      },
+      "blocks": {
+        "icon-with-text": {
+          "name": "Ícono con texto",
+          "settings": {
+            "icon": { "label": "Ícono" },
+            "heading": { "label": "Título" },
+            "text": { "label": "Texto" }
+          }
+        }
+      },
+      "presets": { "name": "Beneficios" }
+    },
+    "newsletter": {
+      "name": "Boletín",
+      "settings": {
+        "heading": { "label": "Título" },
+        "text": { "label": "Texto" },
+        "color_scheme": { "label": "Esquema de color" }
+      },
+      "presets": { "name": "Boletín" }
+    },
+    "main-collection-banner": { "name": "Banner de colección" },
+    "main-collection-product-grid": {
+      "name": "Cuadrícula de productos",
+      "settings": {
+        "products_per_page": { "label": "Productos por página" },
+        "columns_desktop": { "label": "Columnas en escritorio" }
+      }
+    },
+    "main-product": { "name": "Página de producto" },
+    "main-cart": { "name": "Carrito" },
+    "main-search": { "name": "Resultados de búsqueda" },
+    "main-404": { "name": "Página 404" },
+    "main-page": { "name": "Página" },
+    "main-list-collections": { "name": "Lista de colecciones" }
+  },
+  "settings_schema": {
+    "typography": {
+      "name": "Tipografía",
+      "settings": {
+        "header_font": { "label": "Fuente de títulos" },
+        "body_font": { "label": "Fuente de texto" }
+      }
+    },
+    "colors": {
+      "name": "Esquemas de color"
+    }
+  }
+}

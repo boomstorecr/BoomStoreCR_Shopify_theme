@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#00A896">
+  {%- render 'meta-tags' -%}
+
+  <title>
+    {{ page_title }}
+    {%- if current_page != 1 %} &ndash; {{ 'pagination.page' | t: number: current_page }}{% endif -%}
+    {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+  </title>
+
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  {{ 'base.css' | asset_url | stylesheet_tag }}
+  {{ 'component-header.css' | asset_url | stylesheet_tag }}
+  {{ 'component-footer.css' | asset_url | stylesheet_tag }}
+  {{ 'component-hero.css' | asset_url | stylesheet_tag }}
+  {{ 'component-collection-tiles.css' | asset_url | stylesheet_tag }}
+  {{ 'component-featured-collection.css' | asset_url | stylesheet_tag }}
+  {{ 'component-value-props.css' | asset_url | stylesheet_tag }}
+  {{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
+
+  {{ settings.type_header_font | font_face: font_display: 'swap' }}
+  {{ settings.type_body_font | font_face: font_display: 'swap' }}
+
+  {%- style -%}
+    {%- for scheme in settings.color_schemes -%}
+      .color-{{ scheme.id }} {
+        --color-background: {{ scheme.settings.background }};
+        --color-text: {{ scheme.settings.text }};
+        --color-button: {{ scheme.settings.button }};
+        --color-button-label: {{ scheme.settings.button_label }};
+        --color-secondary-button: {{ scheme.settings.secondary_button }};
+        --color-secondary-button-label: {{ scheme.settings.secondary_button_label }};
+        --color-border: {{ scheme.settings.border }};
+        --color-sale-badge: {{ scheme.settings.sale_badge }};
+        --color-sale-badge-text: {{ scheme.settings.sale_badge_text }};
+        background-color: var(--color-background);
+        color: var(--color-text);
+      }
+    {%- endfor -%}
+
+    body {
+      font-family: {{ settings.type_body_font.family }}, sans-serif;
+      font-weight: {{ settings.type_body_font.weight }};
+    }
+    h1, h2, h3, h4, h5, h6,
+    .hero__heading, .section-heading {
+      font-family: {{ settings.type_header_font.family }}, sans-serif;
+      font-weight: {{ settings.type_header_font.weight }};
+    }
+  {%- endstyle -%}
+
+  {{ content_for_header }}
+</head>
+<body>
+  <a class="skip-to-content-link visually-hidden" href="#MainContent">{{ 'accessibility.skip_to_content' | t }}</a>
+
+  {% section 'announcement-bar' %}
+  {% section 'header' %}
+
+  <main id="MainContent" class="main-content">
+    {{ content_for_layout }}
+  </main>
+
+  {% section 'footer' %}
+
+  <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'section-carousel.js' | asset_url }}" defer="defer"></script>
+</body>
+</html>

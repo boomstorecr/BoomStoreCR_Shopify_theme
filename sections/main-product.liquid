@@ -1,0 +1,82 @@
+<div class="product-section color-scheme-light section-padding" data-section-id="{{ section.id }}" data-section-type="main-product">
+  <div class="page-width product-section__grid">
+    <div class="product-section__media">
+      {%- if product.featured_media -%}
+        <img
+          src="{{ product.featured_media | image_url: width: 900 }}"
+          srcset="{{ product.featured_media | image_url: width: 450 }} 450w, {{ product.featured_media | image_url: width: 900 }} 900w"
+          sizes="(min-width: 990px) 50vw, 100vw"
+          alt="{{ product.featured_media.alt | default: product.title }}"
+          width="{{ product.featured_media.width }}"
+          height="{{ product.featured_media.height }}"
+          class="product-section__image"
+          id="ProductMainImage"
+        >
+      {%- endif -%}
+      {%- if product.media.size > 1 -%}
+        <div class="product-section__thumbnails">
+          {%- for media in product.media -%}
+            <button type="button" class="product-section__thumbnail" data-thumbnail data-media-url="{{ media | image_url: width: 900 }}">
+              <img src="{{ media | image_url: width: 150 }}" alt="{{ media.alt | default: product.title }}" width="75" height="75" loading="lazy">
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="product-section__info">
+      {%- if product.vendor != blank -%}
+        <p class="product-section__vendor">{{ product.vendor }}</p>
+      {%- endif -%}
+      <h1 class="product-section__title">{{ product.title }}</h1>
+      <div class="product-section__price">
+        {%- render 'price', product: product, use_variant: true -%}
+      </div>
+
+      {%- if product.description != blank -%}
+        <div class="product-section__description rte">{{ product.description }}</div>
+      {%- endif -%}
+
+      {%- form 'product', product -%}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" data-product-form-id>
+
+        {%- unless product.has_only_default_variant -%}
+          {%- for option in product.options_with_values -%}
+            <div class="product-section__option">
+              <label for="Option-{{ section.id }}-{{ forloop.index0 }}">{{ option.name }}</label>
+              <select id="Option-{{ section.id }}-{{ forloop.index0 }}" class="product-section__option-select" data-option-index="{{ forloop.index0 }}">
+                {%- for value in option.values -%}
+                  <option value="{{ value }}"{% if value == option.selected_value %} selected{% endif %}>{{ value }}</option>
+                {%- endfor -%}
+              </select>
+            </div>
+          {%- endfor -%}
+        {%- endunless -%}
+
+        <div class="product-section__quantity">
+          <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+          <input type="number" id="Quantity-{{ section.id }}" name="quantity" value="1" min="1">
+        </div>
+
+        <button
+          type="submit"
+          class="button button--primary product-section__add-to-cart"
+          {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+        >
+          {%- if product.selected_or_first_available_variant.available == false -%}
+            {{ 'products.product.sold_out' | t }}
+          {%- else -%}
+            {{ 'products.product.add_to_cart' | t }}
+          {%- endif -%}
+        </button>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-product.name",
+  "settings": []
+}
+{% endschema %}

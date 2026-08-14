@@ -1,0 +1,34 @@
+<div class="list-collections color-scheme-light section-padding">
+  <div class="page-width">
+    <h1 class="section-heading">{{ 'footer.shop_heading' | t }}</h1>
+    <ul class="collection-tiles__grid">
+      {%- for collection in collections -%}
+        <li>
+          <a href="{{ collection.url }}" class="collection-tile">
+            <div class="collection-tile__image-wrapper">
+              {%- if collection.featured_image -%}
+                <img
+                  src="{{ collection.featured_image | image_url: width: 600 }}"
+                  alt="{{ collection.title }}"
+                  loading="lazy"
+                  width="{{ collection.featured_image.width }}"
+                  height="{{ collection.featured_image.height }}"
+                >
+              {%- else -%}
+                <div class="collection-tile__placeholder"></div>
+              {%- endif -%}
+            </div>
+            <span class="collection-tile__title">{{ collection.title }}</span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-list-collections.name",
+  "settings": []
+}
+{% endschema %}

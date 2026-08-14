@@ -1,0 +1,38 @@
+<div class="collection-grid-section color-scheme-light section-padding" data-section-id="{{ section.id }}" data-section-type="main-collection-product-grid">
+  <div class="page-width">
+    {%- paginate collection.products by section.settings.products_per_page -%}
+      {%- if collection.products.size > 0 -%}
+        <ul class="product-grid product-grid--{{ section.settings.columns_desktop }}-col">
+          {%- for product in collection.products -%}
+            <li>{%- render 'product-card', product: product, enable_quick_add: true -%}</li>
+          {%- endfor -%}
+        </ul>
+        {%- if paginate.pages > 1 -%}
+          {%- render 'pagination', paginate: paginate -%}
+        {%- endif -%}
+      {%- else -%}
+        <p class="collection-grid__empty">{{ 'general.search.no_results' | t: terms: collection.title }}</p>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-collection-product-grid.name",
+  "settings": [
+    { "type": "range", "id": "products_per_page", "min": 4, "max": 48, "step": 4, "default": 16, "label": "t:sections.main-collection-product-grid.settings.products_per_page.label" },
+    {
+      "type": "select",
+      "id": "columns_desktop",
+      "default": "4",
+      "label": "t:sections.main-collection-product-grid.settings.columns_desktop.label",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ]
+    }
+  ]
+}
+{% endschema %}

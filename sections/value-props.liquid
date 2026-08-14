@@ -1,0 +1,57 @@
+<section class="value-props color-{{ section.settings.color_scheme }} section-padding" data-section-id="{{ section.id }}" data-section-type="value-props">
+  <div class="page-width">
+    <div class="value-props__grid">
+      {%- for block in section.blocks -%}
+        <div class="value-prop" {{ block.shopify_attributes }}>
+          <div class="value-prop__icon value-prop__icon--{{ forloop.index0 | modulo: 3 }}">
+            {%- render 'icon', icon: block.settings.icon -%}
+          </div>
+          <h3 class="value-prop__heading">{{ block.settings.heading }}</h3>
+          <p class="value-prop__text">{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.value-props.name",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "default": "scheme-playful", "label": "t:sections.value-props.settings.color_scheme.label" }
+  ],
+  "blocks": [
+    {
+      "type": "icon-with-text",
+      "name": "t:sections.value-props.blocks.icon-with-text.name",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "default": "dice",
+          "label": "t:sections.value-props.blocks.icon-with-text.settings.icon.label",
+          "options": [
+            { "value": "dice", "label": "Dice" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "people", "label": "People" }
+          ]
+        },
+        { "type": "text", "id": "heading", "default": "Beneficio", "label": "t:sections.value-props.blocks.icon-with-text.settings.heading.label" },
+        { "type": "textarea", "id": "text", "default": "Describe el beneficio aquí.", "label": "t:sections.value-props.blocks.icon-with-text.settings.text.label" }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "t:sections.value-props.presets.name",
+      "settings": { "color_scheme": "scheme-playful" },
+      "blocks": [
+        { "type": "icon-with-text", "settings": { "icon": "dice", "heading": "Esenciales para noche de juegos", "text": "Todo lo que necesitas para una noche de juegos inolvidable." } },
+        { "type": "icon-with-text", "settings": { "icon": "gift", "heading": "Nuevos lanzamientos cada mes", "text": "Descubre los últimos juegos de mesa cada mes." } },
+        { "type": "icon-with-text", "settings": { "icon": "people", "heading": "Diversión para toda la familia", "text": "Juegos para todas las edades y ocasiones." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

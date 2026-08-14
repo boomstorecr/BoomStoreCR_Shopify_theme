@@ -1,0 +1,50 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "type_header_font": "baloo_2_n7",
+      "type_body_font": "assistant_n4",
+      "color_schemes": {
+        "scheme-light": {
+          "settings": {
+            "background": "#FFFFFF",
+            "text": "#1F1B2E",
+            "button": "#FF6B35",
+            "button_label": "#FFFFFF",
+            "secondary_button": "#00A896",
+            "secondary_button_label": "#FFFFFF",
+            "border": "#E8E4F0",
+            "sale_badge": "#FFC63C",
+            "sale_badge_text": "#1F1B2E"
+          }
+        },
+        "scheme-dark": {
+          "settings": {
+            "background": "#1F1B2E",
+            "text": "#F4F1FA",
+            "button": "#FF6B35",
+            "button_label": "#1F1B2E",
+            "secondary_button": "#00A896",
+            "secondary_button_label": "#1F1B2E",
+            "border": "#3A3350",
+            "sale_badge": "#FFC63C",
+            "sale_badge_text": "#1F1B2E"
+          }
+        },
+        "scheme-playful": {
+          "settings": {
+            "background": "#00A896",
+            "text": "#FFFFFF",
+            "button": "#FFC63C",
+            "button_label": "#1F1B2E",
+            "secondary_button": "#FF6B35",
+            "secondary_button_label": "#FFFFFF",
+            "border": "rgba(255,255,255,0.2)",
+            "sale_badge": "#FF6B35",
+            "sale_badge_text": "#FFFFFF"
+          }
+        }
+      }
+    }
+  }
+}

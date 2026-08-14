@@ -1,0 +1,70 @@
+<section class="collection-tiles color-{{ section.settings.color_scheme }} section-padding" data-section-id="{{ section.id }}" data-section-type="collection-tiles">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="section-heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    <div class="collection-tiles__grid">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign tile_url = block.settings.link
+          if block.settings.collection != blank
+            assign tile_url = block.settings.collection.url
+          endif
+        -%}
+        <a href="{{ tile_url | default: '#' }}" class="collection-tile" {{ block.shopify_attributes }}>
+          <div class="collection-tile__image-wrapper">
+            {%- if block.settings.image != blank -%}
+              <img
+                src="{{ block.settings.image | image_url: width: 600 }}"
+                srcset="{{ block.settings.image | image_url: width: 300 }} 300w, {{ block.settings.image | image_url: width: 600 }} 600w"
+                sizes="(min-width: 990px) 25vw, 50vw"
+                alt="{{ block.settings.image.alt | default: block.settings.title }}"
+                loading="lazy"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}"
+              >
+            {%- else -%}
+              <div class="collection-tile__placeholder"></div>
+            {%- endif -%}
+          </div>
+          <span class="collection-tile__title">{{ block.settings.title }}</span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.collection-tiles.name",
+  "settings": [
+    { "type": "text", "id": "heading", "default": "Compra por categoría", "label": "t:sections.collection-tiles.settings.heading.label" },
+    { "type": "color_scheme", "id": "color_scheme", "default": "scheme-light", "label": "t:sections.collection-tiles.settings.color_scheme.label" }
+  ],
+  "blocks": [
+    {
+      "type": "collection-tile",
+      "name": "t:sections.collection-tiles.blocks.collection-tile.name",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "t:sections.collection-tiles.blocks.collection-tile.settings.image.label" },
+        { "type": "text", "id": "title", "default": "Colección", "label": "t:sections.collection-tiles.blocks.collection-tile.settings.title.label" },
+        { "type": "url", "id": "link", "label": "t:sections.collection-tiles.blocks.collection-tile.settings.link.label" },
+        { "type": "collection", "id": "collection", "label": "t:sections.collection-tiles.blocks.collection-tile.settings.collection.label" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "t:sections.collection-tiles.presets.name",
+      "settings": { "heading": "Compra por categoría", "color_scheme": "scheme-light" },
+      "blocks": [
+        { "type": "collection-tile", "settings": { "title": "Estrategia" } },
+        { "type": "collection-tile", "settings": { "title": "Familiares" } },
+        { "type": "collection-tile", "settings": { "title": "Fiesta" } },
+        { "type": "collection-tile", "settings": { "title": "Cartas" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

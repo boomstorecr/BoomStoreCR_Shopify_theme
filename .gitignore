@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.*
+
+# Shopify CLI
+.shopify/
+
+# Theme Check cache
+.theme-check-cache/
+
+# Editors / IDEs
+.idea/
+*.code-workspace
+
+# Build output
+dist/

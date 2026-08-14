@@ -1,0 +1,53 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "BSCR",
+    "theme_version": "1.0.0",
+    "theme_author": "Board Games Costa Rica",
+    "theme_documentation_url": "https://bgcr.example.com",
+    "theme_support_url": "https://bgcr.example.com/support"
+  },
+  {
+    "name": "t:settings_schema.typography.name",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "default": "baloo_2_n7",
+        "label": "t:settings_schema.typography.settings.header_font.label"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "default": "assistant_n4",
+        "label": "t:settings_schema.typography.settings.body_font.label"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.colors.name",
+    "settings": [
+      {
+        "type": "color_scheme_group",
+        "id": "color_schemes",
+        "definition": [
+          { "type": "color", "id": "background", "default": "#FFFFFF", "label": "Background" },
+          { "type": "color", "id": "text", "default": "#1F1B2E", "label": "Text" },
+          { "type": "color", "id": "button", "default": "#FF6B35", "label": "Button background" },
+          { "type": "color", "id": "button_label", "default": "#FFFFFF", "label": "Button label" },
+          { "type": "color", "id": "secondary_button", "default": "#00A896", "label": "Secondary button background" },
+          { "type": "color", "id": "secondary_button_label", "default": "#FFFFFF", "label": "Secondary button label" },
+          { "type": "color", "id": "border", "default": "#E8E4F0", "label": "Border" },
+          { "type": "color", "id": "sale_badge", "default": "#FFC63C", "label": "Sale badge background" },
+          { "type": "color", "id": "sale_badge_text", "default": "#1F1B2E", "label": "Sale badge text" }
+        ],
+        "role": {
+          "text": "text",
+          "background": "background",
+          "primary_button": "button",
+          "on_primary_button": "button_label"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,19 @@
+{%- liquid
+  assign target = product
+  if use_variant
+    assign target = product.selected_or_first_available_variant
+  endif
+  assign price_value = price | default: target.price
+  assign compare_at_value = compare_at_price | default: target.compare_at_price
+-%}
+<div class="price{% if compare_at_value > price_value %} price--on-sale{% endif %}">
+  {%- if compare_at_value > price_value -%}
+    <span class="visually-hidden">{{ 'products.product.sale_price' | t }}</span>
+    <span class="price__sale">{{ price_value | money }}</span>
+    <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+    <span class="price__compare">{{ compare_at_value | money }}</span>
+    <span class="price__badge">{{ 'products.product.sale' | t }}</span>
+  {%- else -%}
+    <span class="price__regular">{{ price_value | money }}</span>
+  {%- endif -%}
+</div>

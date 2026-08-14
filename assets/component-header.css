@@ -1,0 +1,89 @@
+.site-header {
+  position: relative;
+  z-index: 100;
+  border-bottom: 1px solid var(--color-border);
+}
+.site-header--sticky { position: sticky; top: 0; }
+.site-header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.site-header__logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.site-header__nav { display: none; }
+@media (min-width: 990px) {
+  .site-header__nav { display: block; }
+}
+.site-header__menu { display: flex; gap: 28px; }
+.site-header__menu-item { position: relative; }
+.site-header__menu-link { font-weight: 600; padding: 8px 0; display: inline-block; }
+.site-header__submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 8px;
+  display: none;
+  box-shadow: 0 4px 12px rgba(31, 27, 46, 0.08);
+}
+.site-header__menu-item:hover .site-header__submenu,
+.site-header__menu-item:focus-within .site-header__submenu { display: block; }
+.site-header__submenu li a { display: block; padding: 8px 12px; border-radius: 8px; }
+.site-header__submenu li a:hover { background: var(--color-border); }
+
+.site-header__icons { display: flex; align-items: center; gap: 16px; }
+.site-header__icon-link { position: relative; display: inline-flex; }
+.site-header__icon-link .icon { width: 22px; height: 22px; }
+.site-header__cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: var(--color-button);
+  color: var(--color-button-label);
+  border-radius: 999px;
+  font-size: 0.65rem;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+.site-header__menu-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+@media (min-width: 990px) { .site-header__menu-toggle { display: none; } }
+.site-header__menu-toggle .icon-bar {
+  width: 22px;
+  height: 2px;
+  background-color: var(--color-text);
+  border-radius: 2px;
+}
+
+.mobile-nav {
+  display: none;
+  border-top: 1px solid var(--color-border);
+  padding: 16px 20px;
+}
+.mobile-nav.is-open { display: block; }
+.mobile-nav__menu li { padding: 10px 0; border-bottom: 1px solid var(--color-border); }
+.mobile-nav__submenu { padding-left: 16px; }
+
+@media (min-width: 990px) {
+  .mobile-nav { display: none !important; }
+}
