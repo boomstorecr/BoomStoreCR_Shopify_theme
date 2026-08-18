@@ -17,8 +17,8 @@
   justify-content: center;
 }
 .value-prop__icon .icon { width: 26px; height: 26px; }
-.value-prop__icon--0 { background: rgba(255, 198, 60, 0.12); color: #FFC63C; }
-.value-prop__icon--1 { background: rgba(255, 107, 53, 0.12); color: #FF6B35; }
-.value-prop__icon--2 { background: rgba(108, 74, 182, 0.12); color: #6C4AB6; }
+.value-prop__icon--0 { background: rgba(241, 159, 31, 0.12); color: #F19F1F; }
+.value-prop__icon--1 { background: rgba(10, 168, 255, 0.12); color: #0AA8FF; }
+.value-prop__icon--2 { background: rgba(6, 59, 92, 0.12); color: #063B5C; }
 .value-prop__heading { margin: 0; font-size: 1.1rem; }
 .value-prop__text { margin: 0; opacity: 0.9; }

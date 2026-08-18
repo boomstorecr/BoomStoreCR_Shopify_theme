@@ -1,0 +1,58 @@
+{%- assign youtube_embed_url = blank -%}
+{%- if product.metafields.custom.youtube_video_url.value != blank -%}
+  {%- assign youtube_url = product.metafields.custom.youtube_video_url.value | strip -%}
+  {%- assign youtube_url_without_protocol = youtube_url -%}
+  {%- assign youtube_protocol = youtube_url | slice: 0, 8 -%}
+  {%- if youtube_protocol == 'https://' -%}
+    {%- assign youtube_url_without_protocol = youtube_url | remove_first: 'https://' -%}
+  {%- else -%}
+    {%- assign youtube_protocol = youtube_url | slice: 0, 7 -%}
+  {%- endif -%}
+  {%- if youtube_protocol == 'http://' -%}
+    {%- assign youtube_url_without_protocol = youtube_url | remove_first: 'http://' -%}
+  {%- endif -%}
+  {%- assign youtube_host = youtube_url_without_protocol | split: '/' | first | split: '?' | first -%}
+  {%- assign youtube_path = youtube_url_without_protocol | remove_first: youtube_host -%}
+  {%- assign youtube_path_without_query = youtube_path | split: '?' | first -%}
+  {%- assign youtube_path_prefix = youtube_path_without_query | slice: 0, 7 -%}
+  {%- assign youtube_id = blank -%}
+  {%- if youtube_host == 'youtube.com' or youtube_host == 'www.youtube.com' or youtube_host == 'youtu.be' -%}
+    {%- if youtube_host == 'youtu.be' -%}
+      {%- assign youtube_id = youtube_path | remove_first: '/' -%}
+    {%- else -%}
+      {%- if youtube_path_without_query == '/watch' -%}
+        {%- assign youtube_query = youtube_path | split: '?' | last -%}
+        {%- assign youtube_parameters = youtube_query | split: '&' -%}
+        {%- for parameter in youtube_parameters -%}
+          {%- assign parameter_prefix = parameter | slice: 0, 2 -%}
+          {%- if parameter_prefix == 'v=' -%}{%- assign youtube_id = parameter | remove_first: 'v=' -%}{%- break -%}{%- endif -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- if youtube_path_prefix == '/embed/' -%}
+          {%- assign youtube_id = youtube_path | split: '/embed/' | last -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+  {%- assign youtube_id = youtube_id | split: '?' | first | split: '&' | first | strip -%}
+  {%- if youtube_id.size == 11 -%}{%- assign youtube_embed_url = 'https://www.youtube.com/embed/' | append: youtube_id -%}{%- endif -%}
+{%- endif -%}
+
+{%- if youtube_embed_url != blank -%}
+  <section class="product-video section-padding" data-section-id="{{ section.id }}">
+    <div class="page-width">
+      <h2 class="section-heading">{{ 'products.product.video_heading' | t }}</h2>
+      <div class="product-video__frame">
+        <iframe src="{{ youtube_embed_url | escape }}" title="{{ 'products.product.youtube_video_title' | t | escape }}" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "YouTube video",
+  "settings": [],
+  "presets": [{ "name": "YouTube video" }]
+}
+{% endschema %}

@@ -1,9 +1,25 @@
 {
   "sections": {
-    "main": {
+    "purchase": {
       "type": "main-product",
+      "settings": {}
+    },
+    "details": {
+      "type": "main-product-details",
+      "settings": {}
+    },
+    "description": {
+      "type": "main-product-description",
+      "settings": {}
+    },
+    "video": {
+      "type": "main-product-video",
+      "settings": {}
+    },
+    "related": {
+      "type": "related-products",
       "settings": {}
     }
   },
-  "order": ["main"]
+  "order": ["purchase", "details", "description", "video", "related"]
 }

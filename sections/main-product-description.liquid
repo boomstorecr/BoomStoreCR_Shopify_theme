@@ -1,0 +1,19 @@
+{%- if product.description != blank -%}
+  <section class="product-description section-padding" data-section-id="{{ section.id }}">
+    <div class="page-width">
+      <h2 class="section-heading">{{ 'products.product.description_heading' | t }}</h2>
+      <div class="product-description__wrap" data-description-wrap>
+        <div id="ProductDescription-{{ section.id }}" class="product-description__content rte" data-description>{{ product.description }}</div>
+        <button type="button" class="product-description__toggle" data-description-toggle data-show-more="{{ 'products.product.show_more' | t | escape }}" data-show-less="{{ 'products.product.show_less' | t | escape }}" aria-expanded="false" aria-controls="ProductDescription-{{ section.id }}">{{ 'products.product.show_more' | t }}</button>
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product description",
+  "settings": [],
+  "presets": [{ "name": "Product description" }]
+}
+{% endschema %}

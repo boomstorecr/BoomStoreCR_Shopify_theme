@@ -1,18 +1,120 @@
-<div class="collection-grid-section color-scheme-light section-padding" data-section-id="{{ section.id }}" data-section-type="main-collection-product-grid">
+<div class="collection-grid-section color-scheme-light section-padding" data-section-id="{{ section.id }}" data-section-type="main-collection-product-grid" data-collection-filters>
   <div class="page-width">
     {%- paginate collection.products by section.settings.products_per_page -%}
-      {%- if collection.products.size > 0 -%}
-        <ul class="product-grid product-grid--{{ section.settings.columns_desktop }}-col">
-          {%- for product in collection.products -%}
-            <li>{%- render 'product-card', product: product, enable_quick_add: true -%}</li>
-          {%- endfor -%}
-        </ul>
-        {%- if paginate.pages > 1 -%}
-          {%- render 'pagination', paginate: paginate -%}
+      {%- assign active_filter_count = 0 -%}
+      {%- for filter in collection.filters -%}
+        {%- assign filter_has_active_range = false -%}
+        {%- if filter.min_value.value != blank or filter.max_value.value != blank -%}
+          {%- assign filter_has_active_range = true -%}
         {%- endif -%}
-      {%- else -%}
-        <p class="collection-grid__empty">{{ 'general.search.no_results' | t: terms: collection.title }}</p>
-      {%- endif -%}
+        {%- assign active_filter_count = active_filter_count | plus: filter.active_values.size -%}
+        {%- if filter_has_active_range -%}
+          {%- assign active_filter_count = active_filter_count | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+      <form class="collection-filters" method="get" action="{{ collection.url }}" data-collection-filter-form>
+        <div class="collection-filters__backdrop" data-filter-close></div>
+        <aside class="collection-filters__sidebar" id="CollectionFiltersPanel" aria-labelledby="CollectionFiltersTitle" aria-hidden="false" data-filter-panel>
+          <div class="collection-filters__drawer-header">
+            <h2 id="CollectionFiltersTitle">{{ 'collections.filters.title' | t }}</h2>
+            <button type="button" class="collection-filters__close" aria-label="{{ 'accessibility.close' | t }}" data-filter-close>&times;</button>
+          </div>
+          {%- for filter in collection.filters -%}
+            {%- assign filter_is_open = false -%}
+            {%- if filter.min_value.value != blank or filter.max_value.value != blank or filter.active_values.size > 0 or forloop.first -%}
+              {%- assign filter_is_open = true -%}
+            {%- endif -%}
+            <div class="collection-filter" data-filter-disclosure>
+              <button type="button" class="collection-filter__heading" aria-expanded="{{ filter_is_open }}" aria-controls="FilterPanel-{{ section.id }}-{{ forloop.index }}" data-filter-toggle>
+                <span>{{ filter.label }}</span><span aria-hidden="true">+</span>
+              </button>
+              <div class="collection-filter__panel" id="FilterPanel-{{ section.id }}-{{ forloop.index }}" {% unless filter_is_open %}hidden{% endunless %}>
+                {%- if filter.min_value != blank or filter.max_value != blank -%}
+                  <div class="collection-filter__range">
+                    <label for="FilterMin-{{ section.id }}-{{ forloop.index }}">{{ 'collections.filters.from' | t }}</label>
+                    <input id="FilterMin-{{ section.id }}-{{ forloop.index }}" type="number" name="{{ filter.min_value.param_name }}" min="0" max="{{ filter.range_max }}" value="{{ filter.min_value.value | default: '' }}" inputmode="decimal">
+                    <label for="FilterMax-{{ section.id }}-{{ forloop.index }}">{{ 'collections.filters.to' | t }}</label>
+                    <input id="FilterMax-{{ section.id }}-{{ forloop.index }}" type="number" name="{{ filter.max_value.param_name }}" min="0" max="{{ filter.range_max }}" value="{{ filter.max_value.value | default: '' }}" inputmode="decimal">
+                  </div>
+                {%- else -%}
+                  <ul class="collection-filter__values">
+                    {%- for value in filter.values -%}
+                      <li>
+                        <a class="collection-filter__value{% if value.active %} is-active{% endif %}" href="{% if value.active %}{{ value.url_to_remove }}{% else %}{{ value.url_to_add }}{% endif %}" {% if value.active %}aria-current="true"{% endif %}>
+                          <span class="collection-filter__checkbox" aria-hidden="true">{% if value.active %}&#10003;{% endif %}</span>
+                          <span>{{ value.label }}</span><span class="collection-filter__count">{{ value.count }}</span>
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+          {%- for filter in collection.filters -%}
+            {%- for value in filter.active_values -%}
+              {%- if value.param_name != blank and value.value != blank and value.param_name != 'sort_by' and value.param_name != 'page' and value.param_name != filter.min_value.param_name and value.param_name != filter.max_value.param_name -%}
+                <input type="hidden" name="{{ value.param_name }}" value="{{ value.value }}">
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endfor -%}
+        </aside>
+
+        <div class="collection-products">
+          <div class="collection-toolbar">
+            <button type="button" class="collection-toolbar__filter-button" aria-expanded="false" aria-controls="CollectionFiltersPanel" data-filter-open>
+              {{ 'collections.filters.open_filters' | t }}{% if active_filter_count > 0 %} <span class="collection-toolbar__count">{{ active_filter_count }}</span>{% endif %}
+            </button>
+            <p class="collection-toolbar__results" aria-live="polite">{{ 'collections.filters.products_count' | t: count: collection.products_count }}</p>
+            <label class="collection-toolbar__sort" for="CollectionSort">{{ 'collections.filters.sort_by' | t }}
+              <select id="CollectionSort" name="sort_by" data-sort-select>
+                {%- for option in collection.sort_options -%}
+                  <option value="{{ option.value }}"{% if option.value == collection.sort_by %} selected{% endif %}>{{ option.name }}</option>
+                {%- endfor -%}
+              </select>
+            </label>
+            <noscript><button type="submit" class="button button--outline collection-toolbar__sort-submit">{{ 'collections.filters.apply_filters' | t }}</button></noscript>
+          </div>
+          {%- if active_filter_count > 0 -%}
+            <div class="collection-active-filters" aria-label="{{ 'collections.filters.active_filters' | t }}">
+              {%- for filter in collection.filters -%}
+                {%- for value in filter.active_values -%}
+                  <a class="collection-active-filters__chip" href="{{ value.url_to_remove }}">{{ value.label }} <span aria-label="{{ 'collections.filters.remove_filter' | t: label: value.label }}">&times;</span></a>
+                {%- endfor -%}
+                {%- if filter.min_value.value != blank or filter.max_value.value != blank -%}
+                  {%- if filter.min_value.value != blank -%}
+                    {%- assign active_range_min = filter.min_value.value | money -%}
+                  {%- else -%}
+                    {%- assign active_range_min = 'collections.filters.minimum' | t -%}
+                  {%- endif -%}
+                  {%- if filter.max_value.value != blank -%}
+                    {%- assign active_range_max = filter.max_value.value | money -%}
+                  {%- else -%}
+                    {%- assign active_range_max = 'collections.filters.maximum' | t -%}
+                  {%- endif -%}
+                  <a class="collection-active-filters__chip" href="{{ filter.url_to_remove }}">{{ 'collections.filters.active_range' | t: label: filter.label, min: active_range_min, max: active_range_max }} <span aria-label="{{ 'collections.filters.remove_filter' | t: label: filter.label }}">&times;</span></a>
+                {%- endif -%}
+              {%- endfor -%}
+              <a class="collection-active-filters__clear" href="{{ collection.url }}">{{ 'collections.filters.clear_all' | t }}</a>
+            </div>
+          {%- endif -%}
+          {%- if collection.products.size > 0 -%}
+            <ul class="product-grid product-grid--{{ section.settings.columns_desktop }}-col">
+              {%- for product in collection.products -%}
+                <li>{%- render 'product-card', product: product, enable_quick_add: true -%}</li>
+              {%- endfor -%}
+            </ul>
+            {%- if paginate.pages > 1 -%}
+              {%- render 'pagination', paginate: paginate -%}
+            {%- endif -%}
+          {%- else -%}
+            <div class="collection-grid__empty">
+              <p>{{ 'collections.filters.no_products_found' | t }}</p>
+              {%- if active_filter_count > 0 -%}<a class="button button--outline" href="{{ collection.url }}">{{ 'collections.filters.clear_all' | t }}</a>{%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+      </form>
     {%- endpaginate -%}
   </div>
 </div>

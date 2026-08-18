@@ -38,7 +38,7 @@
   "products": {
     "product": {
       "add_to_cart": "Add to cart",
-      "quick_add": "Quick add",
+      "quick_add": "Add",
       "sold_out": "Sold out",
       "sale": "Sale",
       "vendor": "Vendor",
@@ -46,7 +46,33 @@
       "regular_price": "Regular price",
       "sale_price": "Sale price",
       "quantity": "Quantity",
-      "unavailable": "Unavailable"
+      "unavailable": "Unavailable",
+      "information": "Product information",
+      "description_heading": "Description",
+      "related_products": "Related products",
+      "show_more": "Show more",
+      "show_less": "Show less",
+      "video_heading": "Watch the game",
+      "youtube_video_title": "Product video on YouTube",
+      "gallery_label": "Product gallery",
+      "gallery_thumbnails": "Product gallery thumbnails",
+      "view_media": "View product media {{ number }}",
+      "stock_available": "Available",
+      "inventory_count": "{{ count }} available",
+      "increase_quantity": "Increase quantity",
+      "decrease_quantity": "Decrease quantity",
+      "designer_label": "Designer",
+      "facts": {
+        "provider": "Provider",
+        "players": "Players",
+        "language": "Language",
+        "game_type": "Game type",
+        "categories": "Categories",
+        "mechanics": "Game mechanics",
+        "minimum_age": "Minimum age",
+        "minimum_players": "Minimum players",
+        "designer": "Game designer"
+      }
     }
   },
   "cart": {
@@ -66,10 +92,54 @@
     "next": "Next",
     "page": "Page {{ number }}"
   },
+  "collections": {
+    "filters": {
+      "title": "Filters",
+      "filters": "Filters",
+      "apply_filters": "Apply filters",
+      "clear_all": "Clear all",
+      "remove_filter": "Remove {{ label }} filter",
+      "sort_by": "Sort by",
+      "results": "Results",
+      "products_count": "{{ count }} products",
+      "close": "Close",
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {{ number }}",
+      "no_products_found": "No products found.",
+      "open_filters": "Filter",
+      "show_products": "Show products",
+      "active_filters": "Active filters",
+      "active_range": "{{ label }}: {{ min }} - {{ max }}",
+      "from": "From",
+      "to": "To",
+      "minimum": "minimum",
+      "maximum": "maximum"
+    }
+  },
   "accessibility": {
     "skip_to_content": "Skip to content",
     "close": "Close",
     "next_slide": "Next product",
     "previous_slide": "Previous product"
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Here's your gift card!",
+      "subtext": "for {{ shop }}",
+      "gift_card_code": "Gift card code",
+      "initial_value": "Gift card",
+      "expired": "Expired",
+      "expires_on": "Expires on {{ expires_on }}",
+      "balance": "Remaining balance",
+      "shop_link": "Continue shopping at {{ shop }}",
+      "add_to_apple_wallet": "Add to Apple Wallet",
+      "copy_code": "Copy code",
+      "code_copied": "Code copied",
+      "print_gift_card": "Print",
+      "how_to_use_gift_card": "Use the gift card code online or QR code in-store",
+      "qr_image_alt": "QR code — scan to redeem gift card",
+      "redeem": "Redeem this code at checkout for merchandise"
+    }
   }
 }

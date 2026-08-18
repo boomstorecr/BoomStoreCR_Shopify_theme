@@ -13,7 +13,7 @@
       {
         "type": "font_picker",
         "id": "type_header_font",
-        "default": "baloo_2_n7",
+        "default": "fredoka_n7",
         "label": "t:settings_schema.typography.settings.header_font.label"
       },
       {
@@ -32,20 +32,26 @@
         "id": "color_schemes",
         "definition": [
           { "type": "color", "id": "background", "default": "#FFFFFF", "label": "Background" },
-          { "type": "color", "id": "text", "default": "#1F1B2E", "label": "Text" },
-          { "type": "color", "id": "button", "default": "#FF6B35", "label": "Button background" },
-          { "type": "color", "id": "button_label", "default": "#FFFFFF", "label": "Button label" },
-          { "type": "color", "id": "secondary_button", "default": "#00A896", "label": "Secondary button background" },
-          { "type": "color", "id": "secondary_button_label", "default": "#FFFFFF", "label": "Secondary button label" },
-          { "type": "color", "id": "border", "default": "#E8E4F0", "label": "Border" },
-          { "type": "color", "id": "sale_badge", "default": "#FFC63C", "label": "Sale badge background" },
-          { "type": "color", "id": "sale_badge_text", "default": "#1F1B2E", "label": "Sale badge text" }
+          { "type": "color", "id": "text", "default": "#1A1A1A", "label": "Text" },
+          { "type": "color", "id": "button", "default": "#0AA8FF", "label": "Button background" },
+          { "type": "color", "id": "button_label", "default": "#101010", "label": "Button label" },
+          { "type": "color", "id": "secondary_button", "default": "#F19F1F", "label": "Secondary button background" },
+          { "type": "color", "id": "secondary_button_label", "default": "#101010", "label": "Secondary button label" },
+          { "type": "color", "id": "border", "default": "#E0E0E0", "label": "Border" },
+          { "type": "color", "id": "sale_badge", "default": "#F19F1F", "label": "Sale badge background" },
+          { "type": "color", "id": "sale_badge_text", "default": "#101010", "label": "Sale badge text" }
         ],
         "role": {
-          "text": "text",
           "background": "background",
+          "text": "text",
           "primary_button": "button",
-          "on_primary_button": "button_label"
+          "on_primary_button": "button_label",
+          "primary_button_border": "button",
+          "secondary_button": "secondary_button",
+          "on_secondary_button": "secondary_button_label",
+          "secondary_button_border": "secondary_button",
+          "links": "secondary_button",
+          "icons": "text"
         }
       }
     ]

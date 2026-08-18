@@ -1,0 +1,4 @@
+.related-products { background: #fff; color: #17191c; }
+.related-products .section-heading { margin-bottom: 32px; }
+.related-products .product-grid { margin: 0; }
+@media (max-width: 699px) { .related-products .product-grid { gap: 16px; } }

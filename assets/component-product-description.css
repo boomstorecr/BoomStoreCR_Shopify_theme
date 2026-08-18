@@ -1,0 +1,7 @@
+.product-description { background: #fff; color: #17191c; }
+.product-description__wrap { max-width: 860px; margin: 0 auto; }
+.product-description__content { position: relative; }
+.product-description__content.is-js-collapsed { max-height: 10rem; overflow: hidden; }
+.product-description__content.is-expanded { max-height: none; }
+.product-description__toggle { min-height: 44px; margin-top: 10px; padding: 8px 0; border: 0; background: transparent; color: #0aa8ff; font-weight: 800; text-decoration: underline; }
+.product-description__toggle:focus-visible { outline: 3px solid #f19f1f; outline-offset: 3px; }

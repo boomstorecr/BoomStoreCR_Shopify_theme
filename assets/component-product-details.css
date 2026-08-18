@@ -1,0 +1,25 @@
+.product-details { padding: 72px 0; background: #fff; color: #17191c; }
+.product-details__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(40px, 7vw, 96px); align-items: start; }
+.product-details__media-stage { position: relative; min-height: 560px; background: #f6f8fa; }
+.product-details__media { min-height: 560px; display: flex; align-items: center; justify-content: center; }
+.product-details__media.is-hidden { display: none; }
+.product-details__media img, .product-details__media video, .product-details__media iframe, .product-details__media model-viewer { width: 100%; height: 100%; max-height: 640px; object-fit: contain; }
+.product-details__placeholder { width: 100%; height: 100%; min-height: 560px; background: #f6f8fa; }
+.product-details__thumbnails { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.product-details__thumbnail { width: 76px; height: 76px; padding: 0; border: 2px solid #d9e0e5; border-radius: 8px; background: #fff; overflow: hidden; }
+.product-details__thumbnail[aria-current="true"] { border-color: #0aa8ff; box-shadow: inset 0 0 0 1px #0aa8ff; }
+.product-details__thumbnail img { width: 100%; height: 100%; object-fit: cover; }
+.product-details__thumbnail-type { display: grid; height: 100%; place-items: center; color: #0aa8ff; font-size: .7rem; text-transform: uppercase; }
+.product-details__eyebrow, .product-purchase__vendor { margin: 0 0 10px; color: #0aa8ff; font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.product-details__title { max-width: 14ch; margin-bottom: 30px; font-size: clamp(2rem, 4vw, 3.5rem); }
+.product-details__facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid #d9e0e5; }
+.product-details__fact { display: flex; gap: 12px; min-width: 0; padding: 18px 12px 18px 0; border-bottom: 1px solid #d9e0e5; }
+.product-details__fact-icon { flex: 0 0 26px; color: #0aa8ff; }
+.product-details__fact:nth-child(3n) .product-details__fact-icon { color: #f19f1f; }
+.product-details__fact .icon { width: 24px; height: 24px; }
+.product-details__fact-label, .product-details__fact-value { display: block; }
+.product-details__fact-label { margin-bottom: 3px; color: #68737b; font-size: .76rem; font-weight: 700; text-transform: uppercase; }
+.product-details__fact-value { overflow-wrap: anywhere; font-weight: 600; }
+.product-details__thumbnail:focus-visible { outline: 3px solid #f19f1f; outline-offset: 3px; }
+@media (max-width: 899px) { .product-details { padding: 40px 0; } .product-details__grid { grid-template-columns: 1fr; gap: 40px; } .product-details__media-stage, .product-details__media { min-height: 0; aspect-ratio: 1 / 1; } .product-details__placeholder { min-height: 0; } .product-details__title { font-size: 2.25rem; } }
+@media (max-width: 520px) { .product-details__facts { grid-template-columns: 1fr; } }

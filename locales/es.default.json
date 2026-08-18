@@ -38,7 +38,7 @@
   "products": {
     "product": {
       "add_to_cart": "Agregar al carrito",
-      "quick_add": "Agregar rápido",
+      "quick_add": "Agregar",
       "sold_out": "Agotado",
       "sale": "Oferta",
       "vendor": "Marca",
@@ -46,7 +46,33 @@
       "regular_price": "Precio regular",
       "sale_price": "Precio de oferta",
       "quantity": "Cantidad",
-      "unavailable": "No disponible"
+      "unavailable": "No disponible",
+      "information": "Información del producto",
+      "description_heading": "Descripción",
+      "related_products": "Productos relacionados",
+      "show_more": "Mostrar más",
+      "show_less": "Mostrar menos",
+      "video_heading": "Mira el juego",
+      "youtube_video_title": "Video del producto en YouTube",
+      "gallery_label": "Galería del producto",
+      "gallery_thumbnails": "Miniaturas de la galería del producto",
+      "view_media": "Ver contenido del producto {{ number }}",
+      "stock_available": "Disponible",
+      "inventory_count": "{{ count }} disponibles",
+      "increase_quantity": "Aumentar cantidad",
+      "decrease_quantity": "Disminuir cantidad",
+      "designer_label": "Diseñador del juego",
+      "facts": {
+        "provider": "Proveedor",
+        "players": "Jugadores",
+        "language": "Idioma",
+        "game_type": "Tipo de juego",
+        "categories": "Categorías",
+        "mechanics": "Mecánicas de juego",
+        "minimum_age": "Edad mínima",
+        "minimum_players": "Mínimo de jugadores",
+        "designer": "Diseñador del juego"
+      }
     }
   },
   "cart": {
@@ -66,10 +92,54 @@
     "next": "Siguiente",
     "page": "Página {{ number }}"
   },
+  "collections": {
+    "filters": {
+      "title": "Filtros",
+      "filters": "Filtros",
+      "apply_filters": "Aplicar filtros",
+      "clear_all": "Borrar todo",
+      "remove_filter": "Quitar filtro {{ label }}",
+      "sort_by": "Ordenar por",
+      "results": "Resultados",
+      "products_count": "{{ count }} productos",
+      "close": "Cerrar",
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "page": "Página {{ number }}",
+      "no_products_found": "No se encontraron productos.",
+      "open_filters": "Filtrar",
+      "show_products": "Ver productos",
+      "active_filters": "Filtros activos",
+      "active_range": "{{ label }}: {{ min }} - {{ max }}",
+      "from": "Desde",
+      "to": "Hasta",
+      "minimum": "mínimo",
+      "maximum": "máximo"
+    }
+  },
   "accessibility": {
     "skip_to_content": "Saltar al contenido",
     "close": "Cerrar",
     "next_slide": "Siguiente producto",
     "previous_slide": "Producto anterior"
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "¡Aquí tienes tu tarjeta de regalo!",
+      "subtext": "para {{ shop }}",
+      "gift_card_code": "Código de la tarjeta de regalo",
+      "initial_value": "Tarjeta de regalo",
+      "expired": "Vencida",
+      "expires_on": "Vence el {{ expires_on }}",
+      "balance": "Saldo restante",
+      "shop_link": "Seguir comprando en {{ shop }}",
+      "add_to_apple_wallet": "Agregar a Apple Wallet",
+      "copy_code": "Copiar código",
+      "code_copied": "Código copiado",
+      "print_gift_card": "Imprimir",
+      "how_to_use_gift_card": "Usa el código de la tarjeta de regalo en línea o el código QR en la tienda",
+      "qr_image_alt": "Código QR — escanea para canjear la tarjeta de regalo",
+      "redeem": "Canjea este código al finalizar la compra por mercancía"
+    }
   }
 }
