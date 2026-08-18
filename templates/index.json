@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero_banner": {
@@ -13,12 +22,45 @@
     "collection_tiles": {
       "type": "collection-tiles",
       "blocks": {
-        "tile-1": { "type": "collection-tile", "settings": { "title": "Estrategia", "link": "shopify://collections/all" } },
-        "tile-2": { "type": "collection-tile", "settings": { "title": "Familiares", "link": "shopify://collections/all" } },
-        "tile-3": { "type": "collection-tile", "settings": { "title": "Fiesta", "link": "shopify://collections/all" } },
-        "tile-4": { "type": "collection-tile", "settings": { "title": "Cartas", "link": "shopify://collections/all" } }
+        "tile-1": {
+          "type": "collection-tile",
+          "settings": {
+            "title": "Estrategia",
+            "link": "shopify://collections/all",
+            "collection": ""
+          }
+        },
+        "tile-2": {
+          "type": "collection-tile",
+          "settings": {
+            "title": "Familiares",
+            "link": "shopify://collections/all",
+            "collection": ""
+          }
+        },
+        "tile-3": {
+          "type": "collection-tile",
+          "settings": {
+            "title": "Fiesta",
+            "link": "shopify://collections/all",
+            "collection": ""
+          }
+        },
+        "tile-4": {
+          "type": "collection-tile",
+          "settings": {
+            "title": "Cartas",
+            "link": "shopify://collections/all",
+            "collection": ""
+          }
+        }
       },
-      "block_order": ["tile-1", "tile-2", "tile-3", "tile-4"],
+      "block_order": [
+        "tile-1",
+        "tile-2",
+        "tile-3",
+        "tile-4"
+      ],
       "settings": {
         "heading": "Compra por categoría",
         "color_scheme": "scheme-light"
@@ -28,6 +70,7 @@
       "type": "featured-collection",
       "settings": {
         "heading": "Los más vendidos",
+        "collection": "juegos-de-mesa",
         "products_to_show": 8,
         "enable_quick_add": true,
         "color_scheme": "scheme-light"
@@ -36,11 +79,36 @@
     "value_props": {
       "type": "value-props",
       "blocks": {
-        "prop-1": { "type": "icon-with-text", "settings": { "icon": "dice", "heading": "Esenciales para noche de juegos", "text": "Todo lo que necesitas para una noche de juegos inolvidable." } },
-        "prop-2": { "type": "icon-with-text", "settings": { "icon": "gift", "heading": "Nuevos lanzamientos cada mes", "text": "Descubre los últimos juegos de mesa cada mes." } },
-        "prop-3": { "type": "icon-with-text", "settings": { "icon": "people", "heading": "Diversión para toda la familia", "text": "Juegos para todas las edades y ocasiones." } }
+        "prop-1": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon": "dice",
+            "heading": "Esenciales para noche de juegos",
+            "text": "Todo lo que necesitas para una noche de juegos inolvidable."
+          }
+        },
+        "prop-2": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon": "gift",
+            "heading": "Nuevos lanzamientos cada mes",
+            "text": "Descubre los últimos juegos de mesa cada mes."
+          }
+        },
+        "prop-3": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon": "people",
+            "heading": "Diversión para toda la familia",
+            "text": "Juegos para todas las edades y ocasiones."
+          }
+        }
       },
-      "block_order": ["prop-1", "prop-2", "prop-3"],
+      "block_order": [
+        "prop-1",
+        "prop-2",
+        "prop-3"
+      ],
       "settings": {
         "color_scheme": "scheme-playful"
       }
@@ -54,5 +122,11 @@
       }
     }
   },
-  "order": ["hero_banner", "collection_tiles", "featured_collection", "value_props", "newsletter"]
+  "order": [
+    "hero_banner",
+    "collection_tiles",
+    "featured_collection",
+    "value_props",
+    "newsletter"
+  ]
 }
