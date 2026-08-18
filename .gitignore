@@ -24,3 +24,6 @@ Thumbs.db
 
 # Build output
 dist/
+
+# GitHub agent/config files
+.github/
