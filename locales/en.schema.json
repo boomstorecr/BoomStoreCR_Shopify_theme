@@ -22,14 +22,39 @@
     "footer": {
       "name": "Footer",
       "settings": {
-        "color_scheme": { "label": "Color scheme" },
+        "header_branding": { "content": "Branding" },
+        "footer_logo": { "label": "Footer logo" },
+        "footer_tagline": { "label": "Brand tagline (optional)" },
+        "contact_info": { "label": "Contact information" },
+        "header_newsletter": { "content": "Newsletter" },
+        "show_newsletter": { "label": "Show newsletter signup" },
+        "newsletter_heading": { 
+          "label": "Newsletter heading (optional)",
+          "info": "Leave empty to use default translated heading"
+        },
+        "newsletter_text": { 
+          "label": "Newsletter text (optional)",
+          "info": "Leave empty to use default translated text"
+        },
+        "header_navigation": { "content": "Navigation" },
         "shop_menu": { "label": "Shop menu" },
+        "support_menu": { "label": "Support menu" },
         "company_menu": { "label": "Company menu" },
-        "instagram_url": { "label": "Instagram URL" },
+        "header_social": { "content": "Social media" },
         "facebook_url": { "label": "Facebook URL" },
+        "instagram_url": { "label": "Instagram URL" },
+        "youtube_url": { "label": "YouTube URL" },
         "tiktok_url": { "label": "TikTok URL" },
-        "whatsapp_url": { "label": "WhatsApp URL" },
-        "show_payment_icons": { "label": "Show payment icons" }
+        "whatsapp_url": { 
+          "label": "WhatsApp URL",
+          "info": "Use format: https://wa.me/1234567890"
+        },
+        "enable_floating_whatsapp": { "label": "Show floating WhatsApp button" },
+        "header_options": { "content": "Options" },
+        "show_payment_icons": { "label": "Show payment icons" },
+        "show_policy_links": { "label": "Show policy links" },
+        "show_shopify_attribution": { "label": "Show Shopify attribution" },
+        "color_scheme": { "label": "Color scheme" }
       }
     },
     "hero-banner": {
@@ -66,9 +91,35 @@
       "name": "Featured collection",
       "settings": {
         "heading": { "label": "Heading" },
+        "heading_alignment": {
+          "label": "Heading alignment",
+          "options": {
+            "center": "Center",
+            "right": "Right"
+          }
+        },
+        "heading_color": {
+          "label": "Heading color",
+          "info": "Leave blank to use theme color"
+        },
         "collection": { "label": "Collection" },
+        "display_mode": {
+          "label": "Display mode",
+          "options": {
+            "carousel": "Carousel",
+            "grid": "Grid"
+          }
+        },
         "products_to_show": { "label": "Products to show" },
         "enable_quick_add": { "label": "Enable quick add" },
+        "button_label": {
+          "label": "Button label",
+          "info": "Leave blank to hide button"
+        },
+        "button_link": {
+          "label": "Button link",
+          "info": "Leave blank to use collection URL"
+        },
         "color_scheme": { "label": "Color scheme" }
       },
       "presets": { "name": "Featured collection" }
@@ -99,6 +150,61 @@
       },
       "presets": { "name": "Newsletter" }
     },
+    "countdown": {
+      "name": "Countdown",
+      "settings": {
+        "deadline_info": {
+          "content": "Set a future date with timezone offset (e.g., 2026-12-31T23:59:59-06:00). Section hides when deadline is blank, invalid, or past."
+        },
+        "deadline": {
+          "label": "Deadline (ISO 8601 format)",
+          "info": "Example: 2026-12-31T23:59:59-06:00 for Costa Rica time. Include timezone offset."
+        },
+        "header_images": { "content": "Background images" },
+        "image_desktop": { "label": "Desktop background image" },
+        "image_mobile": {
+          "label": "Mobile background image (optional)",
+          "info": "If blank, desktop image will be used"
+        },
+        "header_content": { "content": "Content" },
+        "heading": { "label": "Heading" },
+        "subheading": { "label": "Subheading (optional)" },
+        "button_label": { "label": "Button label" },
+        "button_link": { "label": "Button link" },
+        "color_scheme": { "label": "Color scheme" }
+      },
+      "presets": { "name": "Countdown" }
+    },
+    "faq": {
+      "name": "FAQ",
+      "settings": {
+        "heading": { "label": "Heading" },
+        "color_scheme": { "label": "Color scheme" }
+      },
+      "blocks": {
+        "question": {
+          "name": "Question",
+          "settings": {
+            "question": { "label": "Question" },
+            "answer": { "label": "Answer" }
+          }
+        }
+      },
+      "presets": { "name": "FAQ" }
+    },
+    "contact-form": {
+      "name": "Contact form",
+      "settings": {
+        "heading": { "label": "Heading" },
+        "text": { "label": "Supporting text" },
+        "button_label": { "label": "Button label" },
+        "show_phone": { "label": "Show phone field" },
+        "show_order_number": { "label": "Show order number field" },
+        "show_topic": { "label": "Show topic dropdown" },
+        "color_scheme": { "label": "Color scheme" }
+      },
+      "presets": { "name": "Contact form" }
+    },
     "main-collection-banner": { "name": "Collection banner" },
     "main-collection-product-grid": {
       "name": "Product grid",
@@ -107,7 +213,22 @@
         "columns_desktop": { "label": "Desktop columns" }
       }
     },
-    "main-product": { "name": "Product page" },
+    "main-product": {
+      "name": "Product page",
+      "settings": {
+        "image_position": {
+          "label": "Image position on desktop",
+          "options": {
+            "left": "Left",
+            "right": "Right"
+          },
+          "info": "On mobile, image always appears first"
+        },
+        "show_share_link": {
+          "label": "Show share link"
+        }
+      }
+    },
     "main-cart": { "name": "Cart" },
     "main-search": { "name": "Search results" },
     "main-404": { "name": "404 page" },

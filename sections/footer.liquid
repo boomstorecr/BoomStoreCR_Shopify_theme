@@ -1,45 +1,129 @@
 <footer class="site-footer color-{{ section.settings.color_scheme }}" data-section-id="{{ section.id }}" data-section-type="footer">
-  <div class="site-footer__container page-width">
+  {%- if section.settings.show_newsletter -%}
+    <div class="site-footer__newsletter">
+      <div class="page-width">
+        <div class="site-footer__newsletter-content">
+          {%- liquid
+            assign newsletter_heading_text = section.settings.newsletter_heading | default: blank
+            if newsletter_heading_text == blank or newsletter_heading_text == 'Join our community'
+              assign newsletter_heading_text = 'footer.newsletter_heading' | t
+            endif
+
+            assign newsletter_description = section.settings.newsletter_text | default: blank
+            if newsletter_description == blank or newsletter_description == 'Get updates on new products and exclusive offers'
+              assign newsletter_description = 'footer.newsletter_text' | t
+            endif
+          -%}
+          <h2 class="site-footer__newsletter-heading">{{ newsletter_heading_text }}</h2>
+          {%- if newsletter_description != blank -%}
+            <p class="site-footer__newsletter-text">{{ newsletter_description }}</p>
+          {%- endif -%}
+          {%- form 'customer' -%}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <div class="site-footer__newsletter-form">
+              <label for="FooterNewsletter-{{ section.id }}" class="visually-hidden">{{ 'general.newsletter.email_placeholder' | t }}</label>
+              <input
+                type="email"
+                name="contact[email]"
+                id="FooterNewsletter-{{ section.id }}"
+                class="site-footer__newsletter-input"
+                placeholder="{{ 'general.newsletter.email_placeholder' | t }}"
+                required
+              >
+              <button type="submit" class="button button--secondary site-footer__newsletter-submit">{{ 'general.newsletter.submit' | t }}</button>
+            </div>
+            {%- if form.posted_successfully? -%}
+              <p class="site-footer__newsletter-success" aria-live="polite">{{ 'general.newsletter.success' | t }}</p>
+            {%- endif -%}
+            {%- if form.errors -%}
+              <p class="site-footer__newsletter-error" aria-live="polite">{{ form.errors | default_errors }}</p>
+            {%- endif -%}
+          {%- endform -%}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div class="site-footer__main page-width">
     <div class="site-footer__grid">
       <div class="site-footer__brand">
-        <span class="site-footer__logo-text">{{ shop.name }}</span>
-        <p class="site-footer__tagline">{{ 'footer.follow_us' | t }}</p>
-        <div class="site-footer__social">
-          {%- if section.settings.instagram_url != blank -%}
-            <a href="{{ section.settings.instagram_url }}" class="site-footer__social-link" aria-label="Instagram" target="_blank" rel="noopener">{%- render 'icon', icon: 'instagram' -%}</a>
-          {%- endif -%}
-          {%- if section.settings.facebook_url != blank -%}
-            <a href="{{ section.settings.facebook_url }}" class="site-footer__social-link" aria-label="Facebook" target="_blank" rel="noopener">{%- render 'icon', icon: 'facebook' -%}</a>
-          {%- endif -%}
-          {%- if section.settings.tiktok_url != blank -%}
-            <a href="{{ section.settings.tiktok_url }}" class="site-footer__social-link" aria-label="TikTok" target="_blank" rel="noopener">{%- render 'icon', icon: 'tiktok' -%}</a>
-          {%- endif -%}
-          {%- if section.settings.whatsapp_url != blank -%}
-            <a href="{{ section.settings.whatsapp_url }}" class="site-footer__social-link" aria-label="WhatsApp" target="_blank" rel="noopener">{%- render 'icon', icon: 'whatsapp' -%}</a>
-          {%- endif -%}
-        </div>
+        {%- if section.settings.footer_logo != blank -%}
+          {%- assign logo_aspect_ratio = section.settings.footer_logo.aspect_ratio | default: 1 -%}
+          {%- assign logo_width = 200 -%}
+          {%- assign logo_height = logo_width | divided_by: logo_aspect_ratio | round -%}
+          <img src="{{ section.settings.footer_logo | image_url: width: logo_width }}" alt="{{ shop.name }}" class="site-footer__logo" loading="lazy" width="{{ logo_width }}" height="{{ logo_height }}">
+        {%- else -%}
+          <span class="site-footer__logo-text">{{ shop.name }}</span>
+        {%- endif -%}
+        
+        {%- if section.settings.footer_tagline != blank and section.settings.footer_tagline != 'Follow us' -%}
+          <p class="site-footer__tagline">{{ section.settings.footer_tagline }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.contact_info != blank -%}
+          <div class="site-footer__contact">{{ section.settings.contact_info }}</div>
+        {%- endif -%}
+
+        {%- assign has_social_links = false -%}
+        {%- if section.settings.facebook_url != blank or section.settings.instagram_url != blank or section.settings.youtube_url != blank or section.settings.tiktok_url != blank or section.settings.whatsapp_url != blank -%}
+          {%- assign has_social_links = true -%}
+        {%- endif -%}
+
+        {%- if has_social_links -%}
+          <div class="site-footer__social">
+            <h3 class="site-footer__social-heading">{{ 'footer.follow_us_heading' | t }}</h3>
+            <div class="site-footer__social-links">
+              {%- if section.settings.facebook_url != blank -%}
+                <a href="{{ section.settings.facebook_url }}" class="site-footer__social-link" aria-label="{{ 'footer.social_links.facebook' | t }}" target="_blank" rel="noopener">{%- render 'icon', icon: 'facebook' -%}</a>
+              {%- endif -%}
+              {%- if section.settings.instagram_url != blank -%}
+                <a href="{{ section.settings.instagram_url }}" class="site-footer__social-link" aria-label="{{ 'footer.social_links.instagram' | t }}" target="_blank" rel="noopener">{%- render 'icon', icon: 'instagram' -%}</a>
+              {%- endif -%}
+              {%- if section.settings.youtube_url != blank -%}
+                <a href="{{ section.settings.youtube_url }}" class="site-footer__social-link" aria-label="{{ 'footer.social_links.youtube' | t }}" target="_blank" rel="noopener">{%- render 'icon', icon: 'youtube' -%}</a>
+              {%- endif -%}
+              {%- if section.settings.tiktok_url != blank -%}
+                <a href="{{ section.settings.tiktok_url }}" class="site-footer__social-link" aria-label="{{ 'footer.social_links.tiktok' | t }}" target="_blank" rel="noopener">{%- render 'icon', icon: 'tiktok' -%}</a>
+              {%- endif -%}
+              {%- if section.settings.whatsapp_url != blank -%}
+                <a href="{{ section.settings.whatsapp_url }}" class="site-footer__social-link" aria-label="{{ 'footer.social_links.whatsapp' | t }}" target="_blank" rel="noopener">{%- render 'icon', icon: 'whatsapp' -%}</a>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
       </div>
 
       {%- if section.settings.shop_menu != blank -%}
-        <div class="site-footer__column">
+        <nav class="site-footer__column" aria-label="{{ 'footer.shop_heading' | t }}">
           <h3 class="site-footer__heading">{{ 'footer.shop_heading' | t }}</h3>
           <ul class="site-footer__links">
             {%- for link in section.settings.shop_menu.links -%}
               <li><a href="{{ link.url }}">{{ link.title }}</a></li>
             {%- endfor -%}
           </ul>
-        </div>
+        </nav>
+      {%- endif -%}
+
+      {%- if section.settings.support_menu != blank -%}
+        <nav class="site-footer__column" aria-label="{{ 'footer.support_heading' | t }}">
+          <h3 class="site-footer__heading">{{ 'footer.support_heading' | t }}</h3>
+          <ul class="site-footer__links">
+            {%- for link in section.settings.support_menu.links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </nav>
       {%- endif -%}
 
       {%- if section.settings.company_menu != blank -%}
-        <div class="site-footer__column">
+        <nav class="site-footer__column" aria-label="{{ 'footer.company_heading' | t }}">
           <h3 class="site-footer__heading">{{ 'footer.company_heading' | t }}</h3>
           <ul class="site-footer__links">
             {%- for link in section.settings.company_menu.links -%}
               <li><a href="{{ link.url }}">{{ link.title }}</a></li>
             {%- endfor -%}
           </ul>
-        </div>
+        </nav>
       {%- endif -%}
     </div>
 
@@ -55,28 +139,169 @@
     {%- endif -%}
 
     <div class="site-footer__bottom">
-      <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'footer.copyright' | t }}</p>
+      <div class="site-footer__bottom-content">
+        <p class="site-footer__copyright">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'footer.copyright' | t }}</p>
+        
+        {%- if section.settings.show_policy_links -%}
+          <ul class="site-footer__policies">
+            {%- for policy in shop.policies -%}
+              {%- if policy != blank -%}
+                <li><a href="{{ policy.url }}">{{ policy.title }}</a></li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+        
+        {%- if section.settings.show_shopify_attribution -%}
+          <p class="site-footer__powered">{{ 'footer.powered_by' | t }} <a href="https://www.shopify.com" target="_blank" rel="noopener">Shopify</a></p>
+        {%- endif -%}
+      </div>
     </div>
   </div>
+
+  {%- if section.settings.enable_floating_whatsapp and section.settings.whatsapp_url != blank -%}
+    <a href="{{ section.settings.whatsapp_url }}" class="site-footer__floating-whatsapp" aria-label="{{ 'footer.social_links.whatsapp' | t }}" target="_blank" rel="noopener">
+      {%- render 'icon', icon: 'whatsapp' -%}
+    </a>
+  {%- endif -%}
 </footer>
 
 {% schema %}
 {
   "name": "t:sections.footer.name",
   "settings": [
-    { "type": "color_scheme", "id": "color_scheme", "default": "scheme-dark", "label": "t:sections.footer.settings.color_scheme.label" },
-    { "type": "link_list", "id": "shop_menu", "label": "t:sections.footer.settings.shop_menu.label" },
-    { "type": "link_list", "id": "company_menu", "label": "t:sections.footer.settings.company_menu.label" },
-    { "type": "url", "id": "instagram_url", "label": "t:sections.footer.settings.instagram_url.label" },
-    { "type": "url", "id": "facebook_url", "label": "t:sections.footer.settings.facebook_url.label" },
-    { "type": "url", "id": "tiktok_url", "label": "t:sections.footer.settings.tiktok_url.label" },
-    { "type": "url", "id": "whatsapp_url", "label": "t:sections.footer.settings.whatsapp_url.label" },
-    { "type": "checkbox", "id": "show_payment_icons", "default": true, "label": "t:sections.footer.settings.show_payment_icons.label" }
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header_branding.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "footer_logo",
+      "label": "t:sections.footer.settings.footer_logo.label"
+    },
+    {
+      "type": "text",
+      "id": "footer_tagline",
+      "label": "t:sections.footer.settings.footer_tagline.label"
+    },
+    {
+      "type": "richtext",
+      "id": "contact_info",
+      "label": "t:sections.footer.settings.contact_info.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header_newsletter.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_newsletter",
+      "default": true,
+      "label": "t:sections.footer.settings.show_newsletter.label"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "t:sections.footer.settings.newsletter_heading.label",
+      "info": "t:sections.footer.settings.newsletter_heading.info"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_text",
+      "label": "t:sections.footer.settings.newsletter_text.label",
+      "info": "t:sections.footer.settings.newsletter_text.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header_navigation.content"
+    },
+    {
+      "type": "link_list",
+      "id": "shop_menu",
+      "label": "t:sections.footer.settings.shop_menu.label"
+    },
+    {
+      "type": "link_list",
+      "id": "support_menu",
+      "label": "t:sections.footer.settings.support_menu.label"
+    },
+    {
+      "type": "link_list",
+      "id": "company_menu",
+      "label": "t:sections.footer.settings.company_menu.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header_social.content"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "t:sections.footer.settings.facebook_url.label"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "t:sections.footer.settings.instagram_url.label"
+    },
+    {
+      "type": "url",
+      "id": "youtube_url",
+      "label": "t:sections.footer.settings.youtube_url.label"
+    },
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "t:sections.footer.settings.tiktok_url.label"
+    },
+    {
+      "type": "url",
+      "id": "whatsapp_url",
+      "label": "t:sections.footer.settings.whatsapp_url.label",
+      "info": "t:sections.footer.settings.whatsapp_url.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_floating_whatsapp",
+      "default": false,
+      "label": "t:sections.footer.settings.enable_floating_whatsapp.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header_options.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "default": true,
+      "label": "t:sections.footer.settings.show_payment_icons.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_policy_links",
+      "default": true,
+      "label": "t:sections.footer.settings.show_policy_links.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shopify_attribution",
+      "default": true,
+      "label": "t:sections.footer.settings.show_shopify_attribution.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme-dark",
+      "label": "t:sections.footer.settings.color_scheme.label"
+    }
   ],
   "default": {
     "settings": {
       "color_scheme": "scheme-dark",
-      "show_payment_icons": true
+      "show_payment_icons": true,
+      "show_newsletter": true,
+      "show_policy_links": true,
+      "show_shopify_attribution": true
     }
   }
 }

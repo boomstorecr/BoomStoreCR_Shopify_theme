@@ -1,5 +1,5 @@
 <section class="product-purchase" data-section-id="{{ section.id }}" data-section-type="main-product" data-product-purchase data-money-format="{{ shop.money_format | escape }}" data-add-text="{{ 'products.product.add_to_cart' | t | escape }}" data-sold-out-text="{{ 'products.product.sold_out' | t | escape }}" data-available-text="{{ 'products.product.stock_available' | t | escape }}" data-unavailable-text="{{ 'products.product.unavailable' | t | escape }}" data-inventory-text="{{ 'products.product.inventory_count' | t: count: 'COUNT_PLACEHOLDER' | escape }}" data-sale-price-text="{{ 'products.product.sale_price' | t | escape }}" data-regular-price-text="{{ 'products.product.regular_price' | t | escape }}" data-sale-text="{{ 'products.product.sale' | t | escape }}">
-  <div class="page-width product-purchase__grid">
+  <div class="page-width product-purchase__grid{% if section.settings.image_position == 'right' %} product-purchase__grid--image-right{% endif %}">
     <div class="product-purchase__information">
       {%- if product.vendor != blank -%}<p class="product-purchase__vendor">{{ product.vendor }}</p>{%- endif -%}
       <h1 class="product-purchase__title">{{ product.title }}</h1>
@@ -23,6 +23,14 @@
         <button type="submit" class="product-purchase__add-to-cart" data-product-add-to-cart {% unless initial_variant.available %}disabled{% endunless %}><span data-add-to-cart-label>{% if initial_variant.available %}{{ 'products.product.add_to_cart' | t }}{% else %}{{ 'products.product.sold_out' | t }}{% endif %}</span></button>
         <div class="product-purchase__buy-now">{{ form | payment_button }}</div>
       {%- endform -%}
+      <div class="product-purchase__actions">
+        {%- if section.settings.show_share_link -%}
+          <button type="button" class="product-purchase__share" data-share-product data-product-url="{{ product.url | within: collection | prepend: request.origin }}" data-product-title="{{ product.title | escape }}" data-copied-text="{{ 'products.product.share_copied' | t }}" aria-label="{{ 'products.product.share' | t }}">
+            <span>{{ 'products.product.share' | t }}</span>
+          </button>
+        {%- endif -%}
+        <a href="#ProductDetails" class="product-purchase__details-link">{{ 'products.product.view_full_details' | t }}</a>
+      </div>
     </div>
     <div class="product-purchase__media">
       {%- if product.featured_media -%}{%- if product.featured_media.media_type == 'image' -%}<img src="{{ product.featured_media | image_url: width: 1100 }}" srcset="{{ product.featured_media | image_url: width: 600 }} 600w, {{ product.featured_media | image_url: width: 900 }} 900w, {{ product.featured_media | image_url: width: 1100 }} 1100w" sizes="(min-width: 990px) 50vw, 100vw" alt="{{ product.featured_media.alt | default: product.title | escape }}" width="{{ product.featured_media.width }}" height="{{ product.featured_media.height }}" loading="eager" class="product-purchase__image">{%- else -%}{{ product.featured_media | media_tag: image_size: '1100x' }}{%- endif -%}{%- else -%}{{ 'product-1' | placeholder_svg_tag: 'product-purchase__placeholder' }}{%- endif -%}
@@ -47,8 +55,32 @@
 
 {% schema %}
 {
-  "name": "Purchase hero",
-  "settings": [],
-  "presets": [{ "name": "Purchase hero" }]
+  "name": "t:sections.main-product.name",
+  "settings": [
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "t:sections.main-product.settings.image_position.label",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.main-product.settings.image_position.options.left"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.main-product.settings.image_position.options.right"
+        }
+      ],
+      "default": "right",
+      "info": "t:sections.main-product.settings.image_position.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_share_link",
+      "label": "t:sections.main-product.settings.show_share_link.label",
+      "default": true
+    }
+  ],
+  "presets": [{ "name": "t:sections.main-product.name" }]
 }
 {% endschema %}

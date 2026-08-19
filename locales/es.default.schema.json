@@ -22,14 +22,39 @@
     "footer": {
       "name": "Pie de página",
       "settings": {
-        "color_scheme": { "label": "Esquema de color" },
+        "header_branding": { "content": "Marca" },
+        "footer_logo": { "label": "Logo del pie de página" },
+        "footer_tagline": { "label": "Lema de marca (opcional)" },
+        "contact_info": { "label": "Información de contacto" },
+        "header_newsletter": { "content": "Boletín" },
+        "show_newsletter": { "label": "Mostrar suscripción al boletín" },
+        "newsletter_heading": { 
+          "label": "Título del boletín (opcional)",
+          "info": "Deja vacío para usar el título traducido predeterminado"
+        },
+        "newsletter_text": { 
+          "label": "Texto del boletín (opcional)",
+          "info": "Deja vacío para usar el texto traducido predeterminado"
+        },
+        "header_navigation": { "content": "Navegación" },
         "shop_menu": { "label": "Menú de tienda" },
+        "support_menu": { "label": "Menú de soporte" },
         "company_menu": { "label": "Menú de compañía" },
-        "instagram_url": { "label": "URL de Instagram" },
+        "header_social": { "content": "Redes sociales" },
         "facebook_url": { "label": "URL de Facebook" },
+        "instagram_url": { "label": "URL de Instagram" },
+        "youtube_url": { "label": "URL de YouTube" },
         "tiktok_url": { "label": "URL de TikTok" },
-        "whatsapp_url": { "label": "URL de WhatsApp" },
-        "show_payment_icons": { "label": "Mostrar íconos de pago" }
+        "whatsapp_url": { 
+          "label": "URL de WhatsApp",
+          "info": "Usa el formato: https://wa.me/1234567890"
+        },
+        "enable_floating_whatsapp": { "label": "Mostrar botón flotante de WhatsApp" },
+        "header_options": { "content": "Opciones" },
+        "show_payment_icons": { "label": "Mostrar íconos de pago" },
+        "show_policy_links": { "label": "Mostrar enlaces de políticas" },
+        "show_shopify_attribution": { "label": "Mostrar atribución de Shopify" },
+        "color_scheme": { "label": "Esquema de color" }
       }
     },
     "hero-banner": {
@@ -66,9 +91,35 @@
       "name": "Colección destacada",
       "settings": {
         "heading": { "label": "Título" },
+        "heading_alignment": {
+          "label": "Alineación del título",
+          "options": {
+            "center": "Centro",
+            "right": "Derecha"
+          }
+        },
+        "heading_color": {
+          "label": "Color del título",
+          "info": "Deja vacío para usar el color del tema"
+        },
         "collection": { "label": "Colección" },
+        "display_mode": {
+          "label": "Modo de visualización",
+          "options": {
+            "carousel": "Carrusel",
+            "grid": "Cuadrícula"
+          }
+        },
         "products_to_show": { "label": "Productos a mostrar" },
         "enable_quick_add": { "label": "Habilitar agregar rápido" },
+        "button_label": {
+          "label": "Texto del botón",
+          "info": "Deja vacío para ocultar el botón"
+        },
+        "button_link": {
+          "label": "Enlace del botón",
+          "info": "Deja vacío para usar la URL de la colección"
+        },
         "color_scheme": { "label": "Esquema de color" }
       },
       "presets": { "name": "Colección destacada" }
@@ -99,6 +150,61 @@
       },
       "presets": { "name": "Boletín" }
     },
+    "countdown": {
+      "name": "Cuenta regresiva",
+      "settings": {
+        "deadline_info": {
+          "content": "Establece una fecha futura con zona horaria (ej: 2026-12-31T23:59:59-06:00). La sección se oculta cuando la fecha está vacía, es inválida o ya pasó."
+        },
+        "deadline": {
+          "label": "Fecha límite (formato ISO 8601)",
+          "info": "Ejemplo: 2026-12-31T23:59:59-06:00 para hora de Costa Rica. Incluye la zona horaria."
+        },
+        "header_images": { "content": "Imágenes de fondo" },
+        "image_desktop": { "label": "Imagen de fondo para escritorio" },
+        "image_mobile": {
+          "label": "Imagen de fondo para móvil (opcional)",
+          "info": "Si está vacío, se usará la imagen de escritorio"
+        },
+        "header_content": { "content": "Contenido" },
+        "heading": { "label": "Título" },
+        "subheading": { "label": "Subtítulo (opcional)" },
+        "button_label": { "label": "Texto del botón" },
+        "button_link": { "label": "Enlace del botón" },
+        "color_scheme": { "label": "Esquema de color" }
+      },
+      "presets": { "name": "Cuenta regresiva" }
+    },
+    "faq": {
+      "name": "Preguntas frecuentes",
+      "settings": {
+        "heading": { "label": "Título" },
+        "color_scheme": { "label": "Esquema de color" }
+      },
+      "blocks": {
+        "question": {
+          "name": "Pregunta",
+          "settings": {
+            "question": { "label": "Pregunta" },
+            "answer": { "label": "Respuesta" }
+          }
+        }
+      },
+      "presets": { "name": "Preguntas frecuentes" }
+    },
+    "contact-form": {
+      "name": "Formulario de contacto",
+      "settings": {
+        "heading": { "label": "Título" },
+        "text": { "label": "Texto de apoyo" },
+        "button_label": { "label": "Texto del botón" },
+        "show_phone": { "label": "Mostrar campo de teléfono" },
+        "show_order_number": { "label": "Mostrar campo de número de pedido" },
+        "show_topic": { "label": "Mostrar menú desplegable de tema" },
+        "color_scheme": { "label": "Esquema de color" }
+      },
+      "presets": { "name": "Formulario de contacto" }
+    },
     "main-collection-banner": { "name": "Banner de colección" },
     "main-collection-product-grid": {
       "name": "Cuadrícula de productos",
@@ -107,7 +213,22 @@
         "columns_desktop": { "label": "Columnas en escritorio" }
       }
     },
-    "main-product": { "name": "Página de producto" },
+    "main-product": {
+      "name": "Página de producto",
+      "settings": {
+        "image_position": {
+          "label": "Posición de la imagen en escritorio",
+          "options": {
+            "left": "Izquierda",
+            "right": "Derecha"
+          },
+          "info": "En dispositivos móviles, la imagen siempre aparece primero"
+        },
+        "show_share_link": {
+          "label": "Mostrar enlace de compartir"
+        }
+      }
+    },
     "main-cart": { "name": "Carrito" },
     "main-search": { "name": "Resultados de búsqueda" },
     "main-404": { "name": "Página 404" },

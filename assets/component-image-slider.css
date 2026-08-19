@@ -1,0 +1,26 @@
+.image-slider { position: relative; overflow: hidden; }
+.image-slider__viewport { position: relative; }
+.image-slider__track { display: flex; transition: transform 0.45s ease; }
+.image-slider__slide { position: relative; flex: 0 0 100%; min-width: 100%; height: var(--image-slider-height); }
+.image-slider__link { display: block; height: 100%; color: inherit; }
+.image-slider__media, .image-slider__media picture, .image-slider__media img, .image-slider__placeholder { width: 100%; height: 100%; }
+.image-slider__media { position: absolute; inset: 0; background: var(--color-border); }
+.image-slider__media::after { content: ''; position: absolute; inset: 0; background: var(--color-text); opacity: var(--image-slider-overlay-opacity); }
+.image-slider__media img { display: block; object-fit: cover; object-position: center; }
+.image-slider__placeholder { background: linear-gradient(135deg, var(--color-button), var(--color-secondary-button)); }
+.image-slider__content { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 12px; color: var(--color-background); }
+.image-slider__content--left { align-items: flex-start; text-align: left; }
+.image-slider__content--center { align-items: center; text-align: center; }
+.image-slider__content--right { align-items: flex-end; text-align: right; }
+.image-slider__content h2 { max-width: 720px; margin: 0; font-size: clamp(2rem, 5vw, 4rem); }
+.image-slider__content p { max-width: 600px; margin: 0; font-size: 1.1rem; }
+.image-slider__content .button { width: fit-content; margin-top: 8px; }
+.image-slider__arrow { position: absolute; top: 50%; z-index: 2; width: 44px; height: 44px; border: 1px solid rgba(255, 255, 255, 0.7); border-radius: 50%; background: rgba(0, 0, 0, 0.25); color: #fff; transform: translateY(-50%); font-size: 1.4rem; }
+.image-slider__arrow:hover { background: rgba(0, 0, 0, 0.55); }
+.image-slider__arrow--prev { left: 20px; }
+.image-slider__arrow--next { right: 20px; }
+.image-slider__dots { position: absolute; z-index: 2; bottom: 20px; left: 50%; display: flex; gap: 8px; transform: translateX(-50%); }
+.image-slider__dot { width: 10px; height: 10px; padding: 0; border: 1px solid #fff; border-radius: 50%; background: transparent; }
+.image-slider__dot.is-active { background: #fff; }
+@media (max-width: 749px) { .image-slider__slide { height: var(--image-slider-mobile-height); } .image-slider__arrow--prev { left: 12px; } .image-slider__arrow--next { right: 12px; } }
+@media (prefers-reduced-motion: reduce) { .image-slider__track { transition: none; } }

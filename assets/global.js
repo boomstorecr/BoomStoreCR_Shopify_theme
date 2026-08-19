@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initProductDetails();
   initProductDescriptions();
   initProductPurchase();
+  initProductShare();
 });
 
 function initMobileNav() {
@@ -187,4 +188,48 @@ function initProductPurchase() {
     form.addEventListener('submit', normalizeQuantity);
     updateVariant();
   });
+}
+
+function initProductShare() {
+  document.querySelectorAll('[data-share-product]').forEach(function (shareButton) {
+    shareButton.addEventListener('click', function () {
+      var productUrl = shareButton.getAttribute('data-product-url');
+      var productTitle = shareButton.getAttribute('data-product-title');
+
+      if (navigator.share) {
+        navigator.share({
+          title: productTitle,
+          url: productUrl
+        }).catch(function () {
+          // User cancelled or share failed, fallback to copy
+          copyToClipboard(productUrl, shareButton);
+        });
+      } else {
+        copyToClipboard(productUrl, shareButton);
+      }
+    });
+  });
+
+  function copyToClipboard(text, button) {
+    var tempInput = document.createElement('input');
+    tempInput.style.position = 'absolute';
+    tempInput.style.left = '-9999px';
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    tempInput.setSelectionRange(0, 99999);
+    
+    try {
+      document.execCommand('copy');
+      var originalText = button.textContent;
+      button.textContent = button.getAttribute('data-copied-text') || 'Copied!';
+      setTimeout(function () {
+        button.textContent = originalText;
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+    
+    document.body.removeChild(tempInput);
+  }
 }

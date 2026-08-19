@@ -1,0 +1,105 @@
+<section class="faq color-{{ section.settings.color_scheme }} section-padding" data-section-id="{{ section.id }}" data-section-type="faq">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="section-heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    
+    {%- if section.blocks.size > 0 -%}
+      <div class="faq__list">
+        {%- for block in section.blocks -%}
+          <div class="faq__item" {{ block.shopify_attributes }}>
+            <button
+              type="button"
+              class="faq__question"
+              aria-expanded="false"
+              aria-controls="faq-answer-{{ section.id }}-{{ block.id }}"
+              data-faq-button
+            >
+              <span class="faq__question-text">{{ block.settings.question }}</span>
+              <span class="faq__icon" aria-hidden="true">
+                <svg class="faq__icon-plus" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <svg class="faq__icon-minus" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+            <div
+              id="faq-answer-{{ section.id }}-{{ block.id }}"
+              class="faq__answer"
+              hidden
+              data-faq-answer
+            >
+              <div class="faq__answer-content rte">
+                {{ block.settings.answer }}
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.faq.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Preguntas frecuentes",
+      "label": "t:sections.faq.settings.heading.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme-light",
+      "label": "t:sections.faq.settings.color_scheme.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "t:sections.faq.blocks.question.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "default": "¿Cual es la pregunta?",
+          "label": "t:sections.faq.blocks.question.settings.question.label"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "default": "<p>La respuesta va aqui.</p>",
+          "label": "t:sections.faq.blocks.question.settings.answer.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.faq.presets.name",
+      "blocks": [
+        {
+          "type": "question",
+          "settings": {
+            "question": "¿Hacen envios a todo Costa Rica?",
+            "answer": "<p>Si, hacemos envios a todo el pais. Los envios dentro del GAM toman 1-2 dias habiles, y a zonas rurales 3-5 dias habiles.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "¿Cuales metodos de pago aceptan?",
+            "answer": "<p>Aceptamos tarjetas de credito y debito, SINPE Movil, y transferencias bancarias. Todos los pagos son procesados de forma segura.</p>"
+          }
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12
+}
+{% endschema %}

@@ -1,0 +1,181 @@
+{%- liquid
+  assign deadline = section.settings.deadline
+  assign has_valid_deadline = false
+  
+  if deadline != blank
+    assign deadline_test = deadline | date: '%s'
+    if deadline_test != blank
+      assign has_valid_deadline = true
+    endif
+  endif
+  
+  assign now_timestamp = 'now' | date: '%s'
+  assign deadline_timestamp = deadline | date: '%s'
+  assign is_expired = false
+  
+  if has_valid_deadline and deadline_timestamp <= now_timestamp
+    assign is_expired = true
+  endif
+  
+  assign should_render = false
+  if has_valid_deadline and is_expired == false
+    assign should_render = true
+  endif
+  
+  if request.design_mode
+    assign should_render = true
+  endif
+-%}
+
+{%- if should_render -%}
+<section 
+  class="countdown color-{{ section.settings.color_scheme }}" 
+  data-section-id="{{ section.id }}" 
+  data-section-type="countdown"
+  data-deadline="{{ deadline }}"
+  {% unless has_valid_deadline and is_expired == false %}data-hidden="true"{% endunless %}
+>
+  {%- if section.settings.image_desktop != blank -%}
+    <div class="countdown__image-wrapper">
+      <picture>
+        {%- if section.settings.image_mobile != blank -%}
+          <source 
+            media="(max-width: 749px)" 
+            srcset="{{ section.settings.image_mobile | image_url: width: 800 }} 800w, {{ section.settings.image_mobile | image_url: width: 1200 }} 1200w"
+            sizes="100vw"
+          >
+        {%- endif -%}
+        <img
+          src="{{ section.settings.image_desktop | image_url: width: 1800 }}"
+          srcset="{{ section.settings.image_desktop | image_url: width: 800 }} 800w, {{ section.settings.image_desktop | image_url: width: 1200 }} 1200w, {{ section.settings.image_desktop | image_url: width: 1800 }} 1800w"
+          sizes="100vw"
+          alt=""
+          class="countdown__image"
+          loading="lazy"
+          width="{{ section.settings.image_desktop.width }}"
+          height="{{ section.settings.image_desktop.height }}"
+        >
+      </picture>
+      <div class="countdown__overlay"></div>
+    </div>
+  {%- endif -%}
+  
+  <div class="countdown__content page-width">
+    {%- unless has_valid_deadline and is_expired == false -%}
+      {%- if request.design_mode -%}
+        <p class="countdown__editor-hint">{{ 'countdown.editor_hint' | t }}</p>
+      {%- endif -%}
+    {%- endunless -%}
+    
+    <div class="countdown__text-wrapper">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="countdown__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="countdown__subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+    
+    {%- if has_valid_deadline and is_expired == false -%}
+      <div class="countdown__timer" role="timer" aria-live="polite" aria-atomic="false">
+        <div class="countdown__timer-unit">
+          <span class="countdown__timer-value" data-unit="days">0</span>
+          <span class="countdown__timer-label">{{ 'countdown.days' | t }}</span>
+        </div>
+        <div class="countdown__timer-unit">
+          <span class="countdown__timer-value" data-unit="hours">0</span>
+          <span class="countdown__timer-label">{{ 'countdown.hours' | t }}</span>
+        </div>
+        <div class="countdown__timer-unit">
+          <span class="countdown__timer-value" data-unit="minutes">0</span>
+          <span class="countdown__timer-label">{{ 'countdown.minutes' | t }}</span>
+        </div>
+        <div class="countdown__timer-unit">
+          <span class="countdown__timer-value" data-unit="seconds">0</span>
+          <span class="countdown__timer-label">{{ 'countdown.seconds' | t }}</span>
+        </div>
+        <span class="countdown__timer-sr" aria-live="polite"></span>
+      </div>
+    {%- endif -%}
+    
+    {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+      <a href="{{ section.settings.button_link }}" class="button button--primary countdown__button">
+        {{ section.settings.button_label }}
+      </a>
+    {%- endif -%}
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.countdown.name",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.countdown.settings.deadline_info.content"
+    },
+    {
+      "type": "text",
+      "id": "deadline",
+      "label": "t:sections.countdown.settings.deadline.label",
+      "info": "t:sections.countdown.settings.deadline.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.countdown.settings.header_images.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "t:sections.countdown.settings.image_desktop.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "t:sections.countdown.settings.image_mobile.label",
+      "info": "t:sections.countdown.settings.image_mobile.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.countdown.settings.header_content.content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Oferta especial próximamente",
+      "label": "t:sections.countdown.settings.heading.label"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "t:sections.countdown.settings.subheading.label"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.countdown.settings.button_label.label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.countdown.settings.button_link.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme-playful",
+      "label": "t:sections.countdown.settings.color_scheme.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.countdown.name",
+      "settings": {
+        "heading": "Oferta especial próximamente",
+        "color_scheme": "scheme-playful"
+      }
+    }
+  ]
+}
+{% endschema %}

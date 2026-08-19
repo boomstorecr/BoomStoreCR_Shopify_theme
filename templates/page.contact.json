@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "contact_form": {
+      "type": "contact_form",
+      "settings": {
+        "heading": "Contáctanos",
+        "text": "<p>¿Tienes alguna pregunta? Estamos aquí para ayudarte.</p>",
+        "button_label": "Enviar mensaje",
+        "show_phone": true,
+        "show_order_number": false,
+        "show_topic": true,
+        "color_scheme": "scheme-light"
+      }
+    }
+  },
+  "order": ["main", "contact_form"]
+}

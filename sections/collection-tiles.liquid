@@ -7,21 +7,25 @@
       {%- for block in section.blocks -%}
         {%- liquid
           assign tile_url = block.settings.link
+          assign tile_image = block.settings.image
           if block.settings.collection != blank
             assign tile_url = block.settings.collection.url
+            if tile_image == blank
+              assign tile_image = block.settings.collection.featured_image
+            endif
           endif
         -%}
         <a href="{{ tile_url | default: '#' }}" class="collection-tile" {{ block.shopify_attributes }}>
           <div class="collection-tile__image-wrapper">
-            {%- if block.settings.image != blank -%}
+            {%- if tile_image != blank -%}
               <img
-                src="{{ block.settings.image | image_url: width: 600 }}"
-                srcset="{{ block.settings.image | image_url: width: 300 }} 300w, {{ block.settings.image | image_url: width: 600 }} 600w"
+                src="{{ tile_image | image_url: width: 600 }}"
+                srcset="{{ tile_image | image_url: width: 300 }} 300w, {{ tile_image | image_url: width: 600 }} 600w"
                 sizes="(min-width: 990px) 25vw, 50vw"
-                alt="{{ block.settings.image.alt | default: block.settings.title }}"
+                alt="{{ tile_image.alt | default: block.settings.title }}"
                 loading="lazy"
-                width="{{ block.settings.image.width }}"
-                height="{{ block.settings.image.height }}"
+                width="{{ tile_image.width }}"
+                height="{{ tile_image.height }}"
               >
             {%- else -%}
               <div class="collection-tile__placeholder"></div>

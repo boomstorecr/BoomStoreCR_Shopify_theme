@@ -5,6 +5,24 @@
   margin-bottom: 24px;
 }
 .featured-collection__header .section-heading { margin-bottom: 0; }
+
+/* Heading alignment */
+.featured-collection__header--center {
+  justify-content: center;
+}
+.featured-collection__header--center .section-heading {
+  text-align: center;
+  flex: 1;
+}
+.featured-collection__header--right {
+  justify-content: flex-end;
+}
+.featured-collection__header--right .section-heading {
+  text-align: right;
+  flex: 1;
+}
+
+/* Carousel navigation */
 .carousel-nav { display: flex; gap: 8px; }
 .carousel-nav__button {
   width: 40px;
@@ -16,10 +34,17 @@
   align-items: center;
   justify-content: center;
   color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 .carousel-nav__button:hover { background: var(--color-border); }
 .carousel-nav__button .icon { width: 18px; height: 18px; }
 
+@media (prefers-reduced-motion: reduce) {
+  .carousel-nav__button { transition: none; }
+}
+
+/* Carousel mode */
 .carousel { overflow: hidden; }
 .carousel__track {
   display: flex;
@@ -34,4 +59,36 @@
   flex: 0 0 auto;
   width: 260px;
   scroll-snap-align: start;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel__track { scroll-behavior: auto; }
+}
+
+/* Grid mode */
+.featured-collection__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media screen and (min-width: 750px) {
+  .featured-collection__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Hide carousel controls in grid mode */
+.featured-collection--grid .carousel-nav {
+  display: none;
+}
+
+/* CTA button */
+.featured-collection__cta {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.featured-collection__cta .button {
+  min-width: 200px;
 }

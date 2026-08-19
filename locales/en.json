@@ -30,10 +30,22 @@
   },
   "footer": {
     "shop_heading": "Shop",
+    "support_heading": "Support",
     "company_heading": "Company",
     "follow_us": "Follow us",
+    "follow_us_heading": "Follow us",
+    "newsletter_heading": "Join our community",
+    "newsletter_text": "Get updates on new products and exclusive offers",
     "payment_methods": "Payment methods",
-    "copyright": "All rights reserved."
+    "copyright": "All rights reserved.",
+    "powered_by": "Powered by",
+    "social_links": {
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "youtube": "YouTube",
+      "tiktok": "TikTok",
+      "whatsapp": "WhatsApp"
+    }
   },
   "products": {
     "product": {
@@ -62,6 +74,9 @@
       "increase_quantity": "Increase quantity",
       "decrease_quantity": "Decrease quantity",
       "designer_label": "Designer",
+      "share": "Share",
+      "share_copied": "Copied!",
+      "view_full_details": "View full details",
       "facts": {
         "provider": "Provider",
         "players": "Players",
@@ -117,11 +132,41 @@
       "maximum": "maximum"
     }
   },
+  "countdown": {
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds",
+    "editor_hint": "Configure a valid deadline (ISO 8601 format with timezone) to display the countdown timer."
+  },
   "accessibility": {
     "skip_to_content": "Skip to content",
     "close": "Close",
     "next_slide": "Next product",
     "previous_slide": "Previous product"
+  },
+  "contact": {
+    "form": {
+      "name": "Name",
+      "name_placeholder": "Your full name",
+      "email": "Email",
+      "email_placeholder": "your@email.com",
+      "phone": "Phone",
+      "phone_placeholder": "+1 (555) 000-0000",
+      "order_number": "Order number",
+      "order_number_placeholder": "#1001",
+      "topic": "Topic",
+      "topic_placeholder": "Select a topic",
+      "topic_general": "General inquiry",
+      "topic_order": "Order support",
+      "topic_product": "Product question",
+      "topic_other": "Other",
+      "message": "Message",
+      "message_placeholder": "Tell us how we can help you...",
+      "required": "required",
+      "success": "Thank you for contacting us! We'll get back to you as soon as possible.",
+      "error_heading": "Please correct the following errors:"
+    }
   },
   "gift_cards": {
     "issued": {

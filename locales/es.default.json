@@ -30,10 +30,22 @@
   },
   "footer": {
     "shop_heading": "Tienda",
+    "support_heading": "Soporte",
     "company_heading": "Compañía",
     "follow_us": "Síguenos en redes sociales",
+    "follow_us_heading": "Síguenos",
+    "newsletter_heading": "Únete a nuestra comunidad",
+    "newsletter_text": "Recibe actualizaciones sobre nuevos productos y ofertas exclusivas",
     "payment_methods": "Métodos de pago",
-    "copyright": "Todos los derechos reservados."
+    "copyright": "Todos los derechos reservados.",
+    "powered_by": "Desarrollado por",
+    "social_links": {
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "youtube": "YouTube",
+      "tiktok": "TikTok",
+      "whatsapp": "WhatsApp"
+    }
   },
   "products": {
     "product": {
@@ -62,6 +74,9 @@
       "increase_quantity": "Aumentar cantidad",
       "decrease_quantity": "Disminuir cantidad",
       "designer_label": "Diseñador del juego",
+      "share": "Compartir",
+      "share_copied": "¡Copiado!",
+      "view_full_details": "Ver detalles completos",
       "facts": {
         "provider": "Proveedor",
         "players": "Jugadores",
@@ -117,11 +132,41 @@
       "maximum": "máximo"
     }
   },
+  "countdown": {
+    "days": "Días",
+    "hours": "Horas",
+    "minutes": "Minutos",
+    "seconds": "Segundos",
+    "editor_hint": "Configura una fecha límite válida (formato ISO 8601 con zona horaria) para mostrar el contador."
+  },
   "accessibility": {
     "skip_to_content": "Saltar al contenido",
     "close": "Cerrar",
     "next_slide": "Siguiente producto",
     "previous_slide": "Producto anterior"
+  },
+  "contact": {
+    "form": {
+      "name": "Nombre",
+      "name_placeholder": "Tu nombre completo",
+      "email": "Correo electrónico",
+      "email_placeholder": "tu@correo.com",
+      "phone": "Teléfono",
+      "phone_placeholder": "+506 1234-5678",
+      "order_number": "Número de pedido",
+      "order_number_placeholder": "#1001",
+      "topic": "Tema",
+      "topic_placeholder": "Selecciona un tema",
+      "topic_general": "Consulta general",
+      "topic_order": "Soporte de pedido",
+      "topic_product": "Pregunta sobre producto",
+      "topic_other": "Otro",
+      "message": "Mensaje",
+      "message_placeholder": "Cuéntanos cómo podemos ayudarte...",
+      "required": "requerido",
+      "success": "¡Gracias por contactarnos! Te responderemos lo antes posible.",
+      "error_heading": "Por favor corrige los siguientes errores:"
+    }
   },
   "gift_cards": {
     "issued": {

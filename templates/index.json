@@ -10,6 +10,31 @@
         "color_scheme": "scheme-playful"
       }
     },
+    "countdown": {
+      "type": "countdown",
+      "settings": {
+        "heading": "Oferta especial próximamente",
+        "color_scheme": "scheme-playful"
+      }
+    },
+    "image_slider": {
+      "type": "image-slider",
+      "blocks": {
+        "slide-1": { "type": "slide", "settings": {} }
+      },
+      "block_order": ["slide-1"],
+      "settings": {
+        "height": 520,
+        "mobile_height": 420,
+        "overlay_opacity": 30,
+        "text_alignment": "center",
+        "show_arrows": true,
+        "show_dots": true,
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "color_scheme": "scheme-dark"
+      }
+    },
     "collection_tiles": {
       "type": "collection-tiles",
       "blocks": {
@@ -28,6 +53,8 @@
       "type": "featured-collection",
       "settings": {
         "heading": "Los más vendidos",
+        "collection": "all",
+        "display_mode": "carousel",
         "products_to_show": 8,
         "enable_quick_add": true,
         "color_scheme": "scheme-light"
@@ -45,14 +72,30 @@
         "color_scheme": "scheme-playful"
       }
     },
-    "newsletter": {
-      "type": "newsletter",
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "question-1": {
+          "type": "question",
+          "settings": {
+            "question": "¿Hacen envios a todo Costa Rica?",
+            "answer": "<p>Si, hacemos envios a todo el pais. Los envios dentro del GAM toman 1-2 dias habiles, y a zonas rurales 3-5 dias habiles.</p>"
+          }
+        },
+        "question-2": {
+          "type": "question",
+          "settings": {
+            "question": "¿Cuales metodos de pago aceptan?",
+            "answer": "<p>Aceptamos tarjetas de credito y debito, SINPE Movil, y transferencias bancarias. Todos los pagos son procesados de forma segura.</p>"
+          }
+        }
+      },
+      "block_order": ["question-1", "question-2"],
       "settings": {
-        "heading": "Únete a nuestra comunidad",
-        "text": "Recibe noticias, ofertas y lanzamientos directamente en tu correo.",
-        "color_scheme": "scheme-dark"
+        "heading": "Preguntas frecuentes",
+        "color_scheme": "scheme-light"
       }
     }
   },
-  "order": ["hero_banner", "collection_tiles", "featured_collection", "value_props", "newsletter"]
+  "order": ["hero_banner", "countdown", "image_slider", "collection_tiles", "featured_collection", "value_props", "faq"]
 }
