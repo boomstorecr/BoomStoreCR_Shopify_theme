@@ -9,29 +9,54 @@
  */
 {
   "sections": {
-    "hero_banner": {
-      "type": "hero-banner",
-      "settings": {
-        "heading": "Board Games Costa Rica",
-        "subheading": "Los mejores juegos de mesa para toda la familia, entregados en toda Costa Rica.",
-        "button_label": "Comprar ahora",
-        "button_link": "shopify://collections/all",
-        "color_scheme": "scheme-playful"
-      }
-    },
-    "countdown": {
-      "type": "countdown",
-      "settings": {
-        "heading": "Oferta especial próximamente",
-        "color_scheme": "scheme-playful"
-      }
-    },
     "image_slider": {
       "type": "image-slider",
       "blocks": {
-        "slide-1": { "type": "slide", "settings": {} }
+        "slide_9E4FW3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/wondrous_creatures.webp",
+            "mobile_image": "shopify://shop_images/Wondrous_creatures_mobile.webp",
+            "heading": "",
+            "text": "",
+            "button_label": "",
+            "product": "",
+            "collection": "",
+            "link": ""
+          }
+        },
+        "slide_RENA39": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Kaos.webp",
+            "mobile_image": "shopify://shop_images/Kaos_mobile.webp",
+            "heading": "",
+            "text": "",
+            "button_label": "",
+            "product": "kaos",
+            "collection": "",
+            "link": ""
+          }
+        },
+        "slide-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Fu_Festive_Fortunes.webp",
+            "mobile_image": "shopify://shop_images/fu_Festive_Fortunes_mobile.webp",
+            "heading": "",
+            "text": "",
+            "button_label": "",
+            "product": "fu-festive-fortunes",
+            "collection": "",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["slide-1"],
+      "block_order": [
+        "slide_9E4FW3",
+        "slide_RENA39",
+        "slide-1"
+      ],
       "settings": {
         "height": 520,
         "mobile_height": 420,
@@ -44,12 +69,24 @@
         "color_scheme": "scheme-dark"
       }
     },
+    "countdown": {
+      "type": "countdown",
+      "settings": {
+        "deadline": "2026-09-19T10:00:00-06:00",
+        "heading": "CONNECTURDAY",
+        "subheading": "15 aniversario",
+        "button_label": "Comprar entradas",
+        "button_link": "https://connecturday.com/",
+        "color_scheme": "scheme-dark"
+      }
+    },
     "collection_tiles": {
       "type": "collection-tiles",
       "blocks": {
         "tile-1": {
           "type": "collection-tile",
           "settings": {
+            "image": "shopify://shop_images/Speakeasy.webp",
             "title": "Estrategia",
             "link": "shopify://collections/all",
             "collection": ""
@@ -58,6 +95,7 @@
         "tile-2": {
           "type": "collection-tile",
           "settings": {
+            "image": "shopify://shop_images/Mente_Vacuna_1_product.webp",
             "title": "Familiares",
             "link": "shopify://collections/all",
             "collection": ""
@@ -66,6 +104,7 @@
         "tile-3": {
           "type": "collection-tile",
           "settings": {
+            "image": "shopify://shop_images/Chao_Pescao_1_product.webp",
             "title": "Fiesta",
             "link": "shopify://collections/all",
             "collection": ""
@@ -74,6 +113,7 @@
         "tile-4": {
           "type": "collection-tile",
           "settings": {
+            "image": "shopify://shop_images/iL_R5OOZBeTmELkYCN35TQ.webp",
             "title": "Cartas",
             "link": "shopify://collections/all",
             "collection": ""
@@ -95,10 +135,14 @@
       "type": "featured-collection",
       "settings": {
         "heading": "Los más vendidos",
+        "heading_alignment": "center",
+        "heading_color": "",
         "collection": "all",
-        "display_mode": "carousel",
+        "display_mode": "grid",
         "products_to_show": 8,
         "enable_quick_add": true,
+        "button_label": "",
+        "button_link": "",
         "color_scheme": "scheme-light"
       }
     },
@@ -142,27 +186,122 @@
     "faq": {
       "type": "faq",
       "blocks": {
+        "question_Ck7dtT": {
+          "type": "question",
+          "settings": {
+            "question": "¿Dónde puedo adquirir sus productos?",
+            "answer": "<p>Somos una tienda 100% virtual que realiza envíos a todo Costa Rica. Puedes adquirirlos por medio de nuestra página web o escribirnos a nuestro <a href=\"https://wa.me/50685026761?text=Hola%20me%20interesa%20comprar%20uno%20de%20sus%20juegos\" target=\"_blank\" title=\"Enlace a nuestro whatsapp al numero 85026761\">WhatsApp</a>.</p>"
+          }
+        },
+        "question_LCQWie": {
+          "type": "question",
+          "settings": {
+            "question": "¿Cuáles son las formas de pago?",
+            "answer": "<p>Nuestras formas de pago son:</p><ul><li><strong>Tarjeta o efectivo</strong> (disponible únicamente para recoger en nuestra ubicación).</li><li><strong>SINPE Móvil</strong> (disponible únicamente para recoger en nuestra ubicación).</li><li><strong>Pago en línea</strong> mediante la página web.</li></ul>"
+          }
+        },
+        "question_BWCEXJ": {
+          "type": "question",
+          "settings": {
+            "question": "¿Hacen entregas a todo Costa Rica?",
+            "answer": "<p>Si, realizamos envíos a todo Costa Rica por medio de Correos de Costa Rica</p><ul><li>Dentro del GAM 2800 colones.</li><li>Fuera del GAM 3500 colones.</li></ul><p><strong>Nota:</strong> Precios pueden cambiar si los paquetes son muy grandes</p>"
+          }
+        },
+        "question_N7UBhn": {
+          "type": "question",
+          "settings": {
+            "question": "¿Como funcionan los encargos?",
+            "answer": "<p>Para realizar el encargo se realiza con un 50% por adelantado, una vez el producto está en nuestras manos, procedemos con informar al cliente, luego se cancela el otro 50% más envío si es necesario. ara más información, puedes escribirnos a nuestro WhatsApp: <a href=\"https://wa.me/50685026761?text=Hola%20me%20interesa%20saber%20mas%20sobre%20los%20encargos\" target=\"_blank\" title=\"Whatsapp al numero de la tienda\">+506 8502 6761</a>.</p>"
+          }
+        },
+        "question_Fzk9Jc": {
+          "type": "question",
+          "settings": {
+            "question": "¿Dónde puedo adquirir sus productos?",
+            "answer": "<p>Somos una tienda 100% virtual que realiza envíos a todo Costa Rica.</p>"
+          }
+        },
         "question-1": {
           "type": "question",
           "settings": {
-            "question": "¿Hacen envios a todo Costa Rica?",
-            "answer": "<p>Si, hacemos envios a todo el pais. Los envios dentro del GAM toman 1-2 dias habiles, y a zonas rurales 3-5 dias habiles.</p>"
+            "question": "¿Cuando pueden durar los encargos en llegar?",
+            "answer": "<p>Los encargos pueden durar de 7 a 15 días hábiles.</p>"
           }
         },
         "question-2": {
           "type": "question",
           "settings": {
-            "question": "¿Cuales metodos de pago aceptan?",
-            "answer": "<p>Aceptamos tarjetas de credito y debito, SINPE Movil, y transferencias bancarias. Todos los pagos son procesados de forma segura.</p>"
+            "question": "Se pueden retirar los productos en algún lugar?",
+            "answer": "<p>Si se puede retirar el producto en Santa Rosa, Santo Domingo, Heredia, pueden buscarnos en waze o google map como Boom Store CR.</p>"
           }
         }
       },
-      "block_order": ["question-1", "question-2"],
+      "block_order": [
+        "question_Ck7dtT",
+        "question_LCQWie",
+        "question_BWCEXJ",
+        "question_N7UBhn",
+        "question_Fzk9Jc",
+        "question-1",
+        "question-2"
+      ],
       "settings": {
         "heading": "Preguntas frecuentes",
         "color_scheme": "scheme-light"
       }
+    },
+    "178710004490cc66a5": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_cards_carousel_x4ciNC": {
+          "type": "shopify://apps/judge-me-reviews/blocks/cards_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": true,
+            "reviews_selection": "all",
+            "products": [],
+            "filter_pinned": false,
+            "filter_featured": false,
+            "filter_custom_tags": "",
+            "star_rating": "all",
+            "show_review_media": true,
+            "display_order": "media_first",
+            "no_image_fallback": "review_text_only",
+            "max_reviews": 20,
+            "review_length": "medium",
+            "text_size": "medium",
+            "image_ratio": "1",
+            "reviews_shown": 4,
+            "show_reviewer_name": true,
+            "show_product_name": true,
+            "hide_arrows_mobile": false,
+            "arrows_position": "sides",
+            "max_width": 1200,
+            "corner_styling": "round",
+            "header_text_color": "#08A5FA",
+            "text_color": "#000000",
+            "card_color": "#F9F9F9",
+            "stars_color": "",
+            "arrows_color": "#08A5FA",
+            "transition_speed": 5,
+            "header_text": "Lo que dicen nuestros clientes",
+            "show_average_rating": true,
+            "rating_display": "default"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_cards_carousel_x4ciNC"
+      ],
+      "settings": {}
     }
   },
-  "order": ["hero_banner", "countdown", "image_slider", "collection_tiles", "featured_collection", "value_props", "faq"]
+  "order": [
+    "image_slider",
+    "countdown",
+    "collection_tiles",
+    "featured_collection",
+    "value_props",
+    "faq",
+    "178710004490cc66a5"
+  ]
 }

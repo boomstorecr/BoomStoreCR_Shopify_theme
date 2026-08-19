@@ -15,7 +15,7 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "enable": true,
+          "enable": false,
           "text": "Envío gratis en pedidos mayores a ₡50,000",
           "text_en": "Free shipping on orders over ₡50,000",
           "color_scheme": ""
@@ -25,7 +25,7 @@
         "type": "header",
         "settings": {
           "logo": "shopify://shop_images/Diseno_sin_titulo_1.png",
-          "logo_width": 130,
+          "logo_width": 120,
           "menu": "main-menu",
           "color_scheme": "scheme-light",
           "sticky": true
@@ -34,14 +34,24 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "color_scheme": "",
+          "footer_tagline": "",
+          "contact_info": "",
+          "show_newsletter": true,
+          "newsletter_heading": "",
+          "newsletter_text": "",
           "shop_menu": "customer-account-main-menu",
+          "support_menu": "",
           "company_menu": "main-menu",
-          "instagram_url": "https://www.instagram.com/boomstorecr/?hl=en",
           "facebook_url": "https://www.facebook.com/p/Boom-Store-CR-61574800229181/",
+          "instagram_url": "https://www.instagram.com/boomstorecr/?hl=en",
+          "youtube_url": "",
           "tiktok_url": "https://www.tiktok.com/@boom.store.cr",
           "whatsapp_url": "https://www.youtube.com/@boomstorecr",
-          "show_payment_icons": true
+          "enable_floating_whatsapp": false,
+          "show_payment_icons": true,
+          "show_policy_links": true,
+          "show_shopify_attribution": true,
+          "color_scheme": "scheme-playful"
         }
       }
     },
