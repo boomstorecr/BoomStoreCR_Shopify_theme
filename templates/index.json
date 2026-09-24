@@ -1,537 +1,521 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections":  {
-                     "slideshow_images_6mEWPr":  {
-                                                     "type":  "slideshow-images",
-                                                     "blocks":  {
-                                                                    "slide_CQjTWA":  {
-                                                                                         "type":  "slide",
-                                                                                         "settings":  {
-                                                                                                          "image_desktop":  "shopify://shop_images/Shopify_Slider_for_Desktop.webp",
-                                                                                                          "image_mobile":  "shopify://shop_images/Shopify_Slider_for_Desktop_390_x_340_px.webp",
-                                                                                                          "slide_link":  "https://connecturday.com/"
-                                                                                                      }
-                                                                                     },
-                                                                    "slide_LcLDeV":  {
-                                                                                         "type":  "slide",
-                                                                                         "settings":  {
-                                                                                                          "image_desktop":  "shopify://shop_images/Board_Septiembre.webp",
-                                                                                                          "image_mobile":  "shopify://shop_images/Board_Septiembre_mobile.webp",
-                                                                                                          "slide_link":  "shopify://collections/septiembre-2026"
-                                                                                                      }
-                                                                                     },
-                                                                    "slide_FwN6RE":  {
-                                                                                         "type":  "slide",
-                                                                                         "settings":  {
-                                                                                                          "image_desktop":  "shopify://shop_images/wondrous_creatures.webp",
-                                                                                                          "image_mobile":  "shopify://shop_images/Wondrous_creatures_mobile.webp",
-                                                                                                          "slide_link":  "shopify://products/wondrous-creatures"
-                                                                                                      }
-                                                                                     }
-                                                                },
-                                                     "block_order":  [
-                                                                         "slide_CQjTWA",
-                                                                         "slide_LcLDeV",
-                                                                         "slide_FwN6RE"
-                                                                     ],
-                                                     "name":  "Slideshow Images",
-                                                     "settings":  {
-                                                                      "layout":  "full_bleed",
-                                                                      "slide_height":  "adapt_image",
-                                                                      "slider_visual":  "dots",
-                                                                      "auto_rotate":  true,
-                                                                      "change_slides_speed":  3,
-                                                                      "image_behavior":  "none",
-                                                                      "accessibility_info":  "Presentación de diapositivas sobre tu marca"
-                                                                  }
-                                                 },
-                     "countdown":  {
-                                      "type":  "countdown",
-                                      "settings":  {
-                                                      "deadline":  "",
-                                                      "image_desktop":  "",
-                                                      "image_mobile":  "",
-                                                      "heading":  "Oferta especial próximamente",
-                                                      "subheading":  "",
-                                                      "button_label":  "",
-                                                      "button_link":  "",
-                                                      "color_scheme":  "scheme-1"
-                                                  }
-                                  },
-                     "featured_product_iHbcR9":  {
-                                                     "type":  "featured-product",
-                                                     "blocks":  {
-                                                                    "text_W9Vfrt":  {
-                                                                                        "type":  "text",
-                                                                                        "settings":  {
-                                                                                                         "text":  "{{ section.settings.product.vendor }}",
-                                                                                                         "text_style":  "uppercase"
-                                                                                                     }
-                                                                                    },
-                                                                    "title_BR9zbH":  {
-                                                                                         "type":  "title",
-                                                                                         "settings":  {
-                                                                                                          "heading_size":  "h1"
-                                                                                                      }
-                                                                                     },
-                                                                    "price_fzd47m":  {
-                                                                                         "type":  "price",
-                                                                                         "settings":  {
-
-                                                                                                      }
-                                                                                     },
-                                                                    "variant_picker_gTPC8A":  {
-                                                                                                  "type":  "variant_picker",
-                                                                                                  "settings":  {
-                                                                                                                   "picker_type":  "button",
-                                                                                                                   "swatch_shape":  "none"
-                                                                                                               }
-                                                                                              },
-                                                                    "quantity_selector_YAC63B":  {
-                                                                                                     "type":  "quantity_selector",
-                                                                                                     "settings":  {
-
-                                                                                                                  }
-                                                                                                 },
-                                                                    "buy_buttons_PCbbmM":  {
-                                                                                               "type":  "buy_buttons",
-                                                                                               "settings":  {
-                                                                                                                "show_dynamic_checkout":  true,
-                                                                                                                "show_gift_card_recipient":  true
-                                                                                                            }
-                                                                                           },
-                                                                    "share_LwTzyV":  {
-                                                                                         "type":  "share",
-                                                                                         "settings":  {
-                                                                                                          "share_label":  "Compartir"
-                                                                                                      }
-                                                                                     }
-                                                                },
-                                                     "block_order":  [
-                                                                         "text_W9Vfrt",
-                                                                         "title_BR9zbH",
-                                                                         "price_fzd47m",
-                                                                         "variant_picker_gTPC8A",
-                                                                         "quantity_selector_YAC63B",
-                                                                         "buy_buttons_PCbbmM",
-                                                                         "share_LwTzyV"
-                                                                     ],
-                                                     "name":  "t:sections.featured-product.presets.name",
-                                                     "settings":  {
-                                                                      "product":  "bolso-premium-para-juegos-de-mesa",
-                                                                      "color_scheme":  "scheme-0546428b-6dc9-4913-b756-aad5f52cb59c",
-                                                                      "secondary_background":  false,
-                                                                      "media_size":  "medium",
-                                                                      "constrain_to_viewport":  true,
-                                                                      "media_fit":  "contain",
-                                                                      "media_position":  "left",
-                                                                      "image_zoom":  "lightbox",
-                                                                      "hide_variants":  false,
-                                                                      "enable_video_looping":  false,
-                                                                      "padding_top":  36,
-                                                                      "padding_bottom":  36
-                                                                  }
-                                                 },
-                     "1756244336ef962786":  {
-                                                "type":  "apps",
-                                                "blocks":  {
-                                                               "judge_me_reviews_featured_carousel_BVdaNQ":  {
-                                                                                                                 "type":  "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-                                                                                                                 "settings":  {
-                                                                                                                                  "maxwidth":  1080
-                                                                                                                              }
-                                                                                                             }
-                                                           },
-                                                "block_order":  [
-                                                                    "judge_me_reviews_featured_carousel_BVdaNQ"
-                                                                ],
-                                                "settings":  {
-                                                                 "include_margins":  true
-                                                             }
-                                            },
-                     "featured_collection_f7jdEm":  {
-                                                        "type":  "featured-collection",
-                                                        "name":  "t:sections.featured-collection.presets.name",
-                                                        "settings":  {
-                                                                         "collection":  "septiembre-2026",
-                                                                         "products_to_show":  16,
-                                                                         "title":  "Nuevos Ingresos Septiembre",
-                                                                         "heading_size":  "h0",
-                                                                         "description":  "",
-                                                                         "show_description":  false,
-                                                                         "description_style":  "body",
-                                                                         "columns_desktop":  4,
-                                                                         "enable_desktop_slider":  false,
-                                                                         "full_width":  false,
-                                                                         "show_view_all":  true,
-                                                                         "view_all_style":  "solid",
-                                                                         "color_scheme":  "scheme-0546428b-6dc9-4913-b756-aad5f52cb59c",
-                                                                         "image_ratio":  "adapt",
-                                                                         "image_shape":  "default",
-                                                                         "show_secondary_image":  false,
-                                                                         "show_vendor":  false,
-                                                                         "show_rating":  false,
-                                                                         "quick_add":  "none",
-                                                                         "columns_mobile":  "2",
-                                                                         "swipe_on_mobile":  false,
-                                                                         "padding_top":  36,
-                                                                         "padding_bottom":  36
-                                                                     }
-                                                    },
-                     "featured_product_yyxPQV":  {
-                                                     "type":  "featured-product",
-                                                     "blocks":  {
-                                                                    "text_dWVUKV":  {
-                                                                                        "type":  "text",
-                                                                                        "settings":  {
-                                                                                                         "text":  "{{ section.settings.product.vendor }}",
-                                                                                                         "text_style":  "uppercase"
-                                                                                                     }
-                                                                                    },
-                                                                    "title_jA9pDC":  {
-                                                                                         "type":  "title",
-                                                                                         "settings":  {
-                                                                                                          "heading_size":  "h1"
-                                                                                                      }
-                                                                                     },
-                                                                    "price_yVEzmX":  {
-                                                                                         "type":  "price",
-                                                                                         "settings":  {
-
-                                                                                                      }
-                                                                                     },
-                                                                    "variant_picker_CCqaXF":  {
-                                                                                                  "type":  "variant_picker",
-                                                                                                  "settings":  {
-                                                                                                                   "picker_type":  "button",
-                                                                                                                   "swatch_shape":  "circle"
-                                                                                                               }
-                                                                                              },
-                                                                    "quantity_selector_rntWwe":  {
-                                                                                                     "type":  "quantity_selector",
-                                                                                                     "settings":  {
-
-                                                                                                                  }
-                                                                                                 },
-                                                                    "buy_buttons_N4AaJq":  {
-                                                                                               "type":  "buy_buttons",
-                                                                                               "settings":  {
-                                                                                                                "show_dynamic_checkout":  true,
-                                                                                                                "show_gift_card_recipient":  true
-                                                                                                            }
-                                                                                           },
-                                                                    "share_WGamDY":  {
-                                                                                         "type":  "share",
-                                                                                         "settings":  {
-                                                                                                          "share_label":  "Compartir"
-                                                                                                      }
-                                                                                     }
-                                                                },
-                                                     "block_order":  [
-                                                                         "text_dWVUKV",
-                                                                         "title_jA9pDC",
-                                                                         "price_yVEzmX",
-                                                                         "variant_picker_CCqaXF",
-                                                                         "quantity_selector_rntWwe",
-                                                                         "buy_buttons_N4AaJq",
-                                                                         "share_WGamDY"
-                                                                     ],
-                                                     "name":  "t:sections.featured-product.presets.name",
-                                                     "settings":  {
-                                                                      "product":  "root-a-game-of-woodland-might-and-right",
-                                                                      "color_scheme":  "scheme-0546428b-6dc9-4913-b756-aad5f52cb59c",
-                                                                      "secondary_background":  false,
-                                                                      "media_size":  "medium",
-                                                                      "constrain_to_viewport":  true,
-                                                                      "media_fit":  "contain",
-                                                                      "media_position":  "left",
-                                                                      "image_zoom":  "lightbox",
-                                                                      "hide_variants":  false,
-                                                                      "enable_video_looping":  false,
-                                                                      "padding_top":  36,
-                                                                      "padding_bottom":  36
-                                                                  }
-                                                 },
-                     "all-products":  {
-                                          "type":  "featured-collection",
-                                          "settings":  {
-                                                           "collection":  "party-games",
-                                                           "products_to_show":  12,
-                                                           "title":  "Perfectos para fiestas o Reuniones",
-                                                           "heading_size":  "h0",
-                                                           "description":  "",
-                                                           "show_description":  false,
-                                                           "description_style":  "body",
-                                                           "columns_desktop":  4,
-                                                           "enable_desktop_slider":  false,
-                                                           "full_width":  false,
-                                                           "show_view_all":  true,
-                                                           "view_all_style":  "solid",
-                                                           "color_scheme":  "scheme-0546428b-6dc9-4913-b756-aad5f52cb59c",
-                                                           "image_ratio":  "adapt",
-                                                           "image_shape":  "default",
-                                                           "show_secondary_image":  true,
-                                                           "show_vendor":  true,
-                                                           "show_rating":  false,
-                                                           "quick_add":  "none",
-                                                           "columns_mobile":  "2",
-                                                           "swipe_on_mobile":  false,
-                                                           "padding_top":  24,
-                                                           "padding_bottom":  24
-                                                       }
-                                      },
-                     "featured_product_axMTpw":  {
-                                                     "type":  "featured-product",
-                                                     "blocks":  {
-                                                                    "text_QWaweV":  {
-                                                                                        "type":  "text",
-                                                                                        "settings":  {
-                                                                                                         "text":  "{{ section.settings.product.vendor }}",
-                                                                                                         "text_style":  "uppercase"
-                                                                                                     }
-                                                                                    },
-                                                                    "title_3TRejK":  {
-                                                                                         "type":  "title",
-                                                                                         "settings":  {
-                                                                                                          "heading_size":  "h1"
-                                                                                                      }
-                                                                                     },
-                                                                    "price_YTiqiz":  {
-                                                                                         "type":  "price",
-                                                                                         "settings":  {
-
-                                                                                                      }
-                                                                                     },
-                                                                    "variant_picker_k4g6pj":  {
-                                                                                                  "type":  "variant_picker",
-                                                                                                  "settings":  {
-                                                                                                                   "picker_type":  "button",
-                                                                                                                   "swatch_shape":  "circle"
-                                                                                                               }
-                                                                                              },
-                                                                    "quantity_selector_Q9bUXb":  {
-                                                                                                     "type":  "quantity_selector",
-                                                                                                     "settings":  {
-
-                                                                                                                  }
-                                                                                                 },
-                                                                    "buy_buttons_L7CDWV":  {
-                                                                                               "type":  "buy_buttons",
-                                                                                               "settings":  {
-                                                                                                                "show_dynamic_checkout":  true,
-                                                                                                                "show_gift_card_recipient":  true
-                                                                                                            }
-                                                                                           },
-                                                                    "share_7wM6gM":  {
-                                                                                         "type":  "share",
-                                                                                         "settings":  {
-                                                                                                          "share_label":  "Compartir"
-                                                                                                      }
-                                                                                     }
-                                                                },
-                                                     "block_order":  [
-                                                                         "text_QWaweV",
-                                                                         "title_3TRejK",
-                                                                         "price_YTiqiz",
-                                                                         "variant_picker_k4g6pj",
-                                                                         "quantity_selector_Q9bUXb",
-                                                                         "buy_buttons_L7CDWV",
-                                                                         "share_7wM6gM"
-                                                                     ],
-                                                     "name":  "t:sections.featured-product.presets.name",
-                                                     "settings":  {
-                                                                      "product":  "foundations-of-metropolis",
-                                                                      "color_scheme":  "scheme-0546428b-6dc9-4913-b756-aad5f52cb59c",
-                                                                      "secondary_background":  false,
-                                                                      "media_size":  "medium",
-                                                                      "constrain_to_viewport":  true,
-                                                                      "media_fit":  "contain",
-                                                                      "media_position":  "left",
-                                                                      "image_zoom":  "lightbox",
-                                                                      "hide_variants":  false,
-                                                                      "enable_video_looping":  false,
-                                                                      "padding_top":  36,
-                                                                      "padding_bottom":  36
-                                                                  }
-                                                 },
-                     "featured_collection_ddyCJ7":  {
-                                                        "type":  "featured-collection",
-                                                        "settings":  {
-                                                                         "collection":  "productos-destacados",
-                                                                         "products_to_show":  10,
-                                                                         "title":  "Productos Destacados",
-                                                                         "heading_size":  "h2",
-                                                                         "description":  "",
-                                                                         "show_description":  true,
-                                                                         "description_style":  "subtitle",
-                                                                         "columns_desktop":  5,
-                                                                         "enable_desktop_slider":  false,
-                                                                         "full_width":  false,
-                                                                         "show_view_all":  true,
-                                                                         "view_all_style":  "link",
-                                                                         "color_scheme":  "scheme-0546428b-6dc9-4913-b756-aad5f52cb59c",
-                                                                         "image_ratio":  "adapt",
-                                                                         "image_shape":  "default",
-                                                                         "show_secondary_image":  true,
-                                                                         "show_vendor":  true,
-                                                                         "show_rating":  false,
-                                                                         "quick_add":  "none",
-                                                                         "columns_mobile":  "2",
-                                                                         "swipe_on_mobile":  false,
-                                                                         "padding_top":  24,
-                                                                         "padding_bottom":  24
-                                                                     }
-                                                    },
-                     "collapsible_content_CF9zCF":  {
-                                                        "type":  "collapsible-content",
-                                                        "blocks":  {
-                                                                       "collapsible_row_h3hNnk":  {
-                                                                                                      "type":  "collapsible_row",
-                                                                                                      "settings":  {
-                                                                                                                       "heading":  "¿Dónde puedo adquirir sus productos?",
-                                                                                                                       "icon":  "none",
-                                                                                                                       "row_content":  "\u003cp\u003eSomos una tienda 100% virtual que realiza envíos a todo Costa Rica\u003c/p\u003e",
-                                                                                                                       "page":  ""
-                                                                                                                   }
-                                                                                                  },
-                                                                       "collapsible_row_3dMjif":  {
-                                                                                                      "type":  "collapsible_row",
-                                                                                                      "settings":  {
-                                                                                                                       "heading":  "¿Cuáles son las formas de pago?",
-                                                                                                                       "icon":  "none",
-                                                                                                                       "row_content":  "\u003cp\u003eNuestras formas de pago son: \u003c/p\u003e\u003cul\u003e\u003cli\u003e\u003cstrong\u003eTarjeta o efectivo\u003c/strong\u003e (disponible únicamente para recoger en nuestra ubicación).\u003c/li\u003e\u003cli\u003e\u003cstrong\u003eSINPE Móvil\u003c/strong\u003e (disponible únicamente para recoger en nuestra ubicación).\u003c/li\u003e\u003cli\u003e\u003cstrong\u003ePago en línea\u003c/strong\u003e mediante la página web.\u003cbr/\u003e\u003cbr/\u003e\u003c/li\u003e\u003c/ul\u003e",
-                                                                                                                       "page":  ""
-                                                                                                                   }
-                                                                                                  },
-                                                                       "collapsible_row_NpCAPz":  {
-                                                                                                      "type":  "collapsible_row",
-                                                                                                      "settings":  {
-                                                                                                                       "heading":  "¿Hacen entregas a todo Costa Rica?",
-                                                                                                                       "icon":  "none",
-                                                                                                                       "row_content":  "\u003cp\u003eSi, realizamos envíos a todo Costa Rica por medio de Correos de Costa Rica\u003c/p\u003e\u003cul\u003e\u003cli\u003eDentro del GAM 2800 colones.\u003c/li\u003e\u003cli\u003eFuera del GAM 3500 colones.\u003c/li\u003e\u003c/ul\u003e\u003cp\u003eNota: Precios pueden cambiar si los paquetes son muy grandes\u003c/p\u003e",
-                                                                                                                       "page":  ""
-                                                                                                                   }
-                                                                                                  },
-                                                                       "collapsible_row_iNac3X":  {
-                                                                                                      "type":  "collapsible_row",
-                                                                                                      "settings":  {
-                                                                                                                       "heading":  "¿Cuántos días tardan los pedidos en llegar?",
-                                                                                                                       "icon":  "none",
-                                                                                                                       "row_content":  "\u003cp\u003eLos pedidos tardan entre 2-3 días hábiles.\u003c/p\u003e",
-                                                                                                                       "page":  ""
-                                                                                                                   }
-                                                                                                  },
-                                                                       "collapsible_row_X89Kpb":  {
-                                                                                                      "type":  "collapsible_row",
-                                                                                                      "settings":  {
-                                                                                                                       "heading":  "¿Como funcionan los encargos?",
-                                                                                                                       "icon":  "none",
-                                                                                                                       "row_content":  "\u003cp\u003ePara realizar el encargo se realiza con un 50% por adelantado, una vez el producto está en nuestras manos, procedemos con informar al cliente, luego se cancela el otro 50% más envío si es necesario. ara más información, puedes escribirnos a nuestro WhatsApp: +506 8502 6761.\u003c/p\u003e",
-                                                                                                                       "page":  ""
-                                                                                                                   }
-                                                                                                  },
-                                                                       "collapsible_row_dTTrMr":  {
-                                                                                                      "type":  "collapsible_row",
-                                                                                                      "settings":  {
-                                                                                                                       "heading":  "¿Cuando pueden durar los encargos en llegar?",
-                                                                                                                       "icon":  "none",
-                                                                                                                       "row_content":  "\u003cp\u003eLos encargos pueden durar de 7 a 15 días hábiles.\u003c/p\u003e",
-                                                                                                                       "page":  ""
-                                                                                                                   }
-                                                                                                  },
-                                                                       "collapsible_row_HFdFjr":  {
-                                                                                                      "type":  "collapsible_row",
-                                                                                                      "settings":  {
-                                                                                                                       "heading":  "Se pueden retirar los productos en algún lugar?",
-                                                                                                                       "icon":  "none",
-                                                                                                                       "row_content":  "\u003cp\u003eSi se puede retirar el producto en Santa Rosa, Santo Domingo, Heredia, pueden buscarnos en waze o google map como Boom Store CR.\u003c/p\u003e",
-                                                                                                                       "page":  ""
-                                                                                                                   }
-                                                                                                  }
-                                                                   },
-                                                        "block_order":  [
-                                                                            "collapsible_row_h3hNnk",
-                                                                            "collapsible_row_3dMjif",
-                                                                            "collapsible_row_NpCAPz",
-                                                                            "collapsible_row_iNac3X",
-                                                                            "collapsible_row_X89Kpb",
-                                                                            "collapsible_row_dTTrMr",
-                                                                            "collapsible_row_HFdFjr"
-                                                                        ],
-                                                        "name":  "t:sections.collapsible_content.presets.name",
-                                                        "settings":  {
-                                                                         "caption":  "",
-                                                                         "heading":  "Preguntas Frecuentes",
-                                                                         "heading_size":  "h1",
-                                                                         "heading_alignment":  "center",
-                                                                         "layout":  "section",
-                                                                         "container_color_scheme":  "",
-                                                                         "color_scheme":  "",
-                                                                         "open_first_collapsible_row":  false,
-                                                                         "image_ratio":  "adapt",
-                                                                         "desktop_layout":  "image_second",
-                                                                         "padding_top":  36,
-                                                                         "padding_bottom":  36
-                                                                     }
-                                                    },
-                     "1767918280eb32b107":  {
-                                                "type":  "apps",
-                                                "blocks":  {
-                                                               "judge_me_reviews_testimonials_carousel_i3NRhT":  {
-                                                                                                                     "type":  "shopify://apps/judge-me-reviews/blocks/testimonials_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-                                                                                                                     "settings":  {
-                                                                                                                                      "show_sample_reviews":  true,
-                                                                                                                                      "reviews_selection":  "all",
-                                                                                                                                      "products":  [
-
-                                                                                                                                                   ],
-                                                                                                                                      "filter_pinned":  false,
-                                                                                                                                      "filter_featured":  false,
-                                                                                                                                      "filter_custom_tags":  "",
-                                                                                                                                      "star_rating":  "all",
-                                                                                                                                      "max_reviews":  20,
-                                                                                                                                      "quote_marks_size":  "small",
-                                                                                                                                      "product_name_text_size":  "small",
-                                                                                                                                      "verified_badge_style":  "icon",
-                                                                                                                                      "card_height":  "tall",
-                                                                                                                                      "text_size":  "small",
-                                                                                                                                      "stars_size":  "medium",
-                                                                                                                                      "arrows_position":  "bottom",
-                                                                                                                                      "max_width":  1100,
-                                                                                                                                      "corner_styling":  "round",
-                                                                                                                                      "quote_marks_style":  "serif",
-                                                                                                                                      "card_color":  "#f9f9f9",
-                                                                                                                                      "stars_and_quote_marks_color":  "#0aa8ff",
-                                                                                                                                      "text_color":  "#000000",
-                                                                                                                                      "arrows_color":  "#000000",
-                                                                                                                                      "show_border":  false,
-                                                                                                                                      "border_color":  "#108474",
-                                                                                                                                      "show_drop_shadow":  false,
-                                                                                                                                      "transition_speed":  5,
-                                                                                                                                      "header_text":  "La voz de nuestra comunidad: Experiencias Boom",
-                                                                                                                                      "show_average_rating":  true,
-                                                                                                                                      "rating_display":  "default"
-                                                                                                                                  }
-                                                                                                                 }
-                                                           },
-                                                "block_order":  [
-                                                                    "judge_me_reviews_testimonials_carousel_i3NRhT"
-                                                                ],
-                                                "settings":  {
-                                                                 "include_margins":  true
-                                                             }
-                                            }
-                 },
-    "order":  [
-                  "slideshow_images_6mEWPr",
-                  "countdown",
-                  "featured_product_iHbcR9",
-                  "1756244336ef962786",
-                  "featured_collection_f7jdEm",
-                  "featured_product_yyxPQV",
-                  "all-products",
-                  "featured_product_axMTpw",
-                  "featured_collection_ddyCJ7",
-                  "collapsible_content_CF9zCF",
-                  "1767918280eb32b107"
-              ]
+  "sections": {
+    "slideshow_images_6mEWPr": {
+      "type": "slideshow-images",
+      "blocks": {
+        "slide_LcLDeV": {
+          "type": "slide",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Board_Septiembre.webp",
+            "image_mobile": "shopify://shop_images/Board_Septiembre_mobile.webp",
+            "slide_link": "shopify://collections/septiembre-2026"
+          }
+        },
+        "slide_FwN6RE": {
+          "type": "slide",
+          "settings": {
+            "image_desktop": "shopify://shop_images/wondrous_creatures.webp",
+            "image_mobile": "shopify://shop_images/Wondrous_creatures_mobile.webp",
+            "slide_link": "shopify://products/wondrous-creatures"
+          }
+        }
+      },
+      "block_order": [
+        "slide_LcLDeV",
+        "slide_FwN6RE"
+      ],
+      "name": "Slideshow Images",
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 3,
+        "image_behavior": "none",
+        "accessibility_info": "Presentación de diapositivas sobre tu marca"
+      }
+    },
+    "countdown": {
+      "type": "countdown",
+      "settings": {
+        "deadline": "",
+        "heading": "Oferta especial próximamente",
+        "subheading": "",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "featured_product_iHbcR9": {
+      "type": "featured-product",
+      "blocks": {
+        "text_W9Vfrt": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_BR9zbH": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_fzd47m": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_gTPC8A": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "none"
+          }
+        },
+        "quantity_selector_YAC63B": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_PCbbmM": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_LwTzyV": {
+          "type": "share",
+          "settings": {
+            "share_label": "Compartir"
+          }
+        }
+      },
+      "block_order": [
+        "text_W9Vfrt",
+        "title_BR9zbH",
+        "price_fzd47m",
+        "variant_picker_gTPC8A",
+        "quantity_selector_YAC63B",
+        "buy_buttons_PCbbmM",
+        "share_LwTzyV"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "bolso-premium-para-juegos-de-mesa",
+        "color_scheme": "scheme-0546428b-6dc9-4913-b756-aad5f52cb59c",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1756244336ef962786": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_featured_carousel_BVdaNQ": {
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1080
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_featured_carousel_BVdaNQ"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "featured_collection_f7jdEm": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "septiembre-2026",
+        "products_to_show": 16,
+        "title": "Nuevos Ingresos Septiembre",
+        "heading_size": "h0",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-0546428b-6dc9-4913-b756-aad5f52cb59c",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_product_yyxPQV": {
+      "type": "featured-product",
+      "blocks": {
+        "text_dWVUKV": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_jA9pDC": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_yVEzmX": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_CCqaXF": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_rntWwe": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_N4AaJq": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_WGamDY": {
+          "type": "share",
+          "settings": {
+            "share_label": "Compartir"
+          }
+        }
+      },
+      "block_order": [
+        "text_dWVUKV",
+        "title_jA9pDC",
+        "price_yVEzmX",
+        "variant_picker_CCqaXF",
+        "quantity_selector_rntWwe",
+        "buy_buttons_N4AaJq",
+        "share_WGamDY"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "root-a-game-of-woodland-might-and-right",
+        "color_scheme": "scheme-0546428b-6dc9-4913-b756-aad5f52cb59c",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "all-products": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "party-games",
+        "products_to_show": 12,
+        "title": "Perfectos para fiestas o Reuniones",
+        "heading_size": "h0",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-0546428b-6dc9-4913-b756-aad5f52cb59c",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "featured_product_axMTpw": {
+      "type": "featured-product",
+      "blocks": {
+        "text_QWaweV": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_3TRejK": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_YTiqiz": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_k4g6pj": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_Q9bUXb": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_L7CDWV": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_7wM6gM": {
+          "type": "share",
+          "settings": {
+            "share_label": "Compartir"
+          }
+        }
+      },
+      "block_order": [
+        "text_QWaweV",
+        "title_3TRejK",
+        "price_YTiqiz",
+        "variant_picker_k4g6pj",
+        "quantity_selector_Q9bUXb",
+        "buy_buttons_L7CDWV",
+        "share_7wM6gM"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "foundations-of-metropolis",
+        "color_scheme": "scheme-0546428b-6dc9-4913-b756-aad5f52cb59c",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_ddyCJ7": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "productos-destacados",
+        "products_to_show": 10,
+        "title": "Productos Destacados",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": true,
+        "description_style": "subtitle",
+        "columns_desktop": 5,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "color_scheme": "scheme-0546428b-6dc9-4913-b756-aad5f52cb59c",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "collapsible_content_CF9zCF": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_h3hNnk": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Dónde puedo adquirir sus productos?",
+            "icon": "none",
+            "row_content": "<p>Somos una tienda 100% virtual que realiza envíos a todo Costa Rica</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_3dMjif": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cuáles son las formas de pago?",
+            "icon": "none",
+            "row_content": "<p>Nuestras formas de pago son: </p><ul><li><strong>Tarjeta o efectivo</strong> (disponible únicamente para recoger en nuestra ubicación).</li><li><strong>SINPE Móvil</strong> (disponible únicamente para recoger en nuestra ubicación).</li><li><strong>Pago en línea</strong> mediante la página web.<br/><br/></li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_row_NpCAPz": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Hacen entregas a todo Costa Rica?",
+            "icon": "none",
+            "row_content": "<p>Si, realizamos envíos a todo Costa Rica por medio de Correos de Costa Rica</p><ul><li>Dentro del GAM 2800 colones.</li><li>Fuera del GAM 3500 colones.</li></ul><p>Nota: Precios pueden cambiar si los paquetes son muy grandes</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_iNac3X": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cuántos días tardan los pedidos en llegar?",
+            "icon": "none",
+            "row_content": "<p>Los pedidos tardan entre 2-3 días hábiles.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_X89Kpb": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Como funcionan los encargos?",
+            "icon": "none",
+            "row_content": "<p>Para realizar el encargo se realiza con un 50% por adelantado, una vez el producto está en nuestras manos, procedemos con informar al cliente, luego se cancela el otro 50% más envío si es necesario. ara más información, puedes escribirnos a nuestro WhatsApp: +506 8502 6761.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_dTTrMr": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cuando pueden durar los encargos en llegar?",
+            "icon": "none",
+            "row_content": "<p>Los encargos pueden durar de 7 a 15 días hábiles.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_HFdFjr": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Se pueden retirar los productos en algún lugar?",
+            "icon": "none",
+            "row_content": "<p>Si se puede retirar el producto en Santa Rosa, Santo Domingo, Heredia, pueden buscarnos en waze o google map como Boom Store CR.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_h3hNnk",
+        "collapsible_row_3dMjif",
+        "collapsible_row_NpCAPz",
+        "collapsible_row_iNac3X",
+        "collapsible_row_X89Kpb",
+        "collapsible_row_dTTrMr",
+        "collapsible_row_HFdFjr"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Preguntas Frecuentes",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "section",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1767918280eb32b107": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_testimonials_carousel_i3NRhT": {
+          "type": "shopify://apps/judge-me-reviews/blocks/testimonials_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": true,
+            "reviews_selection": "all",
+            "products": [],
+            "filter_pinned": false,
+            "filter_featured": false,
+            "filter_custom_tags": "",
+            "star_rating": "all",
+            "max_reviews": 20,
+            "quote_marks_size": "small",
+            "product_name_text_size": "small",
+            "verified_badge_style": "icon",
+            "card_height": "tall",
+            "text_size": "small",
+            "stars_size": "medium",
+            "arrows_position": "bottom",
+            "max_width": 1100,
+            "corner_styling": "round",
+            "quote_marks_style": "serif",
+            "card_color": "#f9f9f9",
+            "stars_and_quote_marks_color": "#0aa8ff",
+            "text_color": "#000000",
+            "arrows_color": "#000000",
+            "show_border": false,
+            "border_color": "#108474",
+            "show_drop_shadow": false,
+            "transition_speed": 5,
+            "header_text": "La voz de nuestra comunidad: Experiencias Boom",
+            "show_average_rating": true,
+            "rating_display": "default"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_testimonials_carousel_i3NRhT"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "slideshow_images_6mEWPr",
+    "countdown",
+    "featured_product_iHbcR9",
+    "1756244336ef962786",
+    "featured_collection_f7jdEm",
+    "featured_product_yyxPQV",
+    "all-products",
+    "featured_product_axMTpw",
+    "featured_collection_ddyCJ7",
+    "collapsible_content_CF9zCF",
+    "1767918280eb32b107"
+  ]
 }
