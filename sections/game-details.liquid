@@ -1,0 +1,108 @@
+{{ 'section-game-details.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign facts = 'cantidad_de_jugadores|players|icon-account.svg,idioma|language|icon-chat-bubble.svg,tipo_de_juego|game_type|icon-box.svg,categorias|categories|icon-price-tag.svg,mecanicas_de_juego|mechanics|icon-info.svg,edad_minima|minimum_age|icon-warning.svg,minimo_de_jugadores|minimum_players|icon-plus.svg,disenador_del_juego|designer|icon-star.svg' | split: ','
+  assign has_facts = false
+  for fact_definition in facts
+    assign fact_parts = fact_definition | split: '|'
+    assign fact = product.metafields.custom[fact_parts[0]]
+    if fact != blank and fact.value != blank
+      assign has_facts = true
+    endif
+  endfor
+-%}
+
+{%- if has_facts -%}
+  {%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  {%- endstyle -%}
+  <section class="game-details color-{{ section.settings.color_scheme }} gradient">
+    <div class="game-details__inner page-width section-{{ section.id }}-padding">
+      <h2 class="title inline-richtext {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+      <dl class="game-details__facts">
+        {%- for fact_definition in facts -%}
+          {%- assign fact_parts = fact_definition | split: '|' -%}
+          {%- assign fact = product.metafields.custom[fact_parts[0]] -%}
+          {%- if fact != blank and fact.value != blank -%}
+            <div class="game-details__fact">
+              <dt>
+                <span class="svg-wrapper" aria-hidden="true">{{ fact_parts[2] | inline_asset_content }}</span>
+                {{ 'sections.game_details.facts.' | append: fact_parts[1] | t }}
+              </dt>
+              <dd>
+                {%- if fact.type contains 'list' -%}
+                  {{ fact.value | join: ', ' | escape }}
+                {%- else -%}
+                  {{ fact.value | escape }}
+                {%- endif -%}
+              </dd>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </dl>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.game_details.name",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": { "templates": ["product"] },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "t:sections.game_details.settings.heading.default",
+      "label": "t:sections.game_details.settings.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "t:sections.all.heading_size.options__1.label" },
+        { "value": "h1", "label": "t:sections.all.heading_size.options__2.label" }
+      ],
+      "default": "h2",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme-1",
+      "label": "t:sections.all.colors.label"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 36,
+      "label": "t:sections.all.padding.padding_top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 36,
+      "label": "t:sections.all.padding.padding_bottom"
+    }
+  ],
+  "presets": [{ "name": "t:sections.game_details.name" }]
+}
+{% endschema %}

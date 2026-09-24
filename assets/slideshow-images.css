@@ -1,0 +1,496 @@
+/* ==========================================================================
+   Slideshow Images - Combined Styles
+   All styles scoped to slideshow-component to avoid conflicts with
+   other Dawn theme sections (Image Banner, product sliders, etc.)
+   ========================================================================== */
+
+/* --- Base Slider Component --- */
+
+slideshow-component {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+slideshow-component .slideshow.banner {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  margin: 0;
+  gap: 0;
+  overflow-y: hidden;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+/* --- Slider Slides (scoped) --- */
+
+slideshow-component .slider__slide {
+  --focus-outline-padding: 0.5rem;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  padding-bottom: 0;
+}
+
+slideshow-component .slideshow__slide {
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  visibility: visible;
+  height: auto !important;
+}
+
+/* --- Slider Everywhere (scoped) --- */
+
+slideshow-component .slider--everywhere {
+  position: relative;
+  flex-wrap: inherit;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 0;
+}
+
+slideshow-component .slider.slider--everywhere .slider__slide {
+  margin-bottom: 0;
+  scroll-snap-align: center;
+}
+
+@media (prefers-reduced-motion) {
+  slideshow-component .slider {
+    scroll-behavior: auto;
+  }
+}
+
+/* --- Scrollbar (scoped) --- */
+
+slideshow-component .slider {
+  scrollbar-color: rgb(var(--color-foreground)) rgba(var(--color-foreground), 0.04);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+slideshow-component .slider::-webkit-scrollbar {
+  height: 0.4rem;
+  width: 0.4rem;
+  display: none;
+}
+
+slideshow-component .slider::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--color-foreground));
+  border-radius: 0.4rem;
+  border: 0;
+}
+
+slideshow-component .slider::-webkit-scrollbar-track {
+  background: rgba(var(--color-foreground), 0.04);
+  border-radius: 0.4rem;
+}
+
+/* --- Banner Base (scoped) --- */
+
+slideshow-component .banner {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  z-index: auto;
+  isolation: isolate;
+}
+
+@media screen and (min-width: 750px) {
+  slideshow-component .banner {
+    flex-direction: row;
+  }
+
+  slideshow-component .banner--small:not(.banner--adapt) {
+    min-height: 42rem;
+  }
+
+  slideshow-component .banner--medium:not(.banner--adapt) {
+    min-height: 56rem;
+  }
+
+  slideshow-component .banner--large:not(.banner--adapt) {
+    min-height: 72rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  slideshow-component .banner--small:not(.banner--adapt) .banner__media {
+    height: 28rem;
+  }
+
+  slideshow-component .banner--medium:not(.banner--adapt) .banner__media {
+    height: 34rem;
+  }
+
+  slideshow-component .banner--large:not(.banner--adapt) .banner__media {
+    height: 39rem;
+  }
+}
+
+slideshow-component .banner--adapt,
+slideshow-component .banner--adapt_image {
+  height: auto;
+}
+
+/* --- Banner Media (scoped) --- */
+
+slideshow-component .banner__media {
+  height: auto !important;
+  position: relative;
+  left: auto;
+  top: auto;
+  width: 100%;
+}
+
+@media screen and (min-width: 750px) {
+  slideshow-component .banner__media {
+    height: auto !important;
+  }
+}
+
+slideshow-component .banner__media img,
+slideshow-component .banner__media picture img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+slideshow-component .banner__media.animate--zoom-in {
+  clip-path: inset(0px);
+}
+
+slideshow-component .banner__media.animate--zoom-in > img:not(.zoom):not(.deferred-media__poster-button),
+slideshow-component .banner__media.animate--zoom-in > svg:not(.zoom):not(.deferred-media__poster-button) {
+  position: absolute;
+  height: 100%;
+}
+
+/* --- Placeholder (scoped) --- */
+
+@media screen and (max-width: 749px) {
+  slideshow-component .slideshow--placeholder.banner--adapt_image {
+    height: 28rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  slideshow-component .slideshow--placeholder.banner--adapt_image {
+    height: 56rem;
+  }
+}
+
+/* --- Slideshow Controls --- */
+
+slideshow-component .slideshow__controls {
+  border: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+slideshow-component .slideshow__controls--top {
+  order: 2;
+  z-index: 1;
+}
+
+.spaced-section--full-width:last-child slideshow-component:not(.page-width) .slideshow__controls {
+  border-bottom: none;
+}
+
+@media screen and (min-width: 750px) {
+  slideshow-component .slideshow__controls {
+    position: relative;
+  }
+}
+
+slideshow-component:not(.page-width) .slider-buttons {
+  border-right: 0;
+  border-left: 0;
+}
+
+slideshow-component .slideshow__control-wrapper {
+  display: flex;
+}
+
+/* --- Slider Buttons (scoped) --- */
+
+slideshow-component .slider-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+slideshow-component .slider-button {
+  color: rgba(var(--color-foreground), 0.75);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+slideshow-component .slider-button:not([disabled]):hover {
+  color: rgb(var(--color-foreground));
+}
+
+slideshow-component .slider-button .icon {
+  height: 0.6rem;
+}
+
+slideshow-component .slider-button[disabled] .icon {
+  color: rgba(var(--color-foreground), 0.3);
+  cursor: not-allowed;
+}
+
+slideshow-component .slider-button--next .icon {
+  transform: rotate(-90deg);
+}
+
+slideshow-component .slider-button--prev .icon {
+  transform: rotate(90deg);
+}
+
+slideshow-component .slider-button--next:not([disabled]):hover .icon {
+  transform: rotate(-90deg) scale(1.1);
+}
+
+slideshow-component .slider-button--prev:not([disabled]):hover .icon {
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* --- Slider Counter (scoped) --- */
+
+slideshow-component .slider-counter {
+  display: flex;
+  justify-content: center;
+  min-width: 4.4rem;
+}
+
+@media screen and (min-width: 750px) {
+  slideshow-component .slider-counter--dots {
+    margin: 0 1.2rem;
+  }
+}
+
+slideshow-component .slider-counter__link {
+  padding: 1rem;
+}
+
+@media screen and (max-width: 749px) {
+  slideshow-component .slider-counter__link {
+    padding: 0.7rem;
+  }
+}
+
+slideshow-component .slider-counter__link--dots .si-dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.5);
+  padding: 0;
+  display: block;
+}
+
+slideshow-component .slider-counter__link--active.slider-counter__link--dots .si-dot {
+  background-color: rgb(var(--color-foreground));
+}
+
+@media screen and (forced-colors: active) {
+  slideshow-component .slider-counter__link--active.slider-counter__link--dots .si-dot {
+    background-color: CanvasText;
+  }
+}
+
+slideshow-component .slider-counter__link--dots:not(.slider-counter__link--active):hover .si-dot {
+  border-color: rgb(var(--color-foreground));
+}
+
+slideshow-component .slider-counter__link--dots .si-dot,
+slideshow-component .slider-counter__link--numbers {
+  transition: transform 0.2s ease-in-out;
+}
+
+slideshow-component .slider-counter__link--active.slider-counter__link--numbers,
+slideshow-component .slider-counter__link--dots:not(.slider-counter__link--active):hover .si-dot,
+slideshow-component .slider-counter__link--numbers:hover {
+  transform: scale(1.1);
+}
+
+slideshow-component .slider-counter__link--numbers {
+  color: rgba(var(--color-foreground), 0.5);
+  text-decoration: none;
+}
+
+slideshow-component .slider-counter__link--numbers:hover {
+  color: rgb(var(--color-foreground));
+}
+
+slideshow-component .slider-counter__link--active.slider-counter__link--numbers {
+  text-decoration: underline;
+  color: rgb(var(--color-foreground));
+}
+
+/* --- Autoplay Button (scoped) --- */
+
+slideshow-component .slideshow__autoplay {
+  position: absolute;
+  right: 0;
+  border-left: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 749px) {
+  slideshow-component.page-width .slideshow__autoplay {
+    right: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  slideshow-component .slideshow__autoplay.slider-button {
+    position: inherit;
+    margin-left: 0.6rem;
+    padding: 0 0 0 0.6rem;
+    border-left: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  }
+}
+
+slideshow-component .slideshow__autoplay .icon.icon-play,
+slideshow-component .slideshow__autoplay .icon.icon-pause {
+  display: block;
+  position: absolute;
+  opacity: 1;
+  transform: scale(1);
+  transition: transform 150ms ease, opacity 150ms ease;
+  width: 0.8rem;
+  height: 1.2rem;
+}
+
+slideshow-component .slideshow__autoplay .icon.icon-play {
+  height: 1rem;
+}
+
+slideshow-component .slideshow__autoplay path {
+  fill: rgba(var(--color-foreground), 0.75);
+}
+
+slideshow-component .slideshow__autoplay:hover path {
+  fill: rgb(var(--color-foreground));
+}
+
+@media screen and (forced-colors: active) {
+  slideshow-component .slideshow__autoplay path,
+  slideshow-component .slideshow__autoplay:hover path {
+    fill: CanvasText;
+  }
+}
+
+slideshow-component .slideshow__autoplay:hover .svg-wrapper {
+  transform: scale(1.1);
+}
+
+slideshow-component .slideshow__autoplay--paused .icon-pause,
+slideshow-component .slideshow__autoplay:not(.slideshow__autoplay--paused) .icon-play {
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* --- Slide Link (scoped) --- */
+
+slideshow-component .slideshow__media {
+  display: block;
+  text-decoration: none;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+}
+
+slideshow-component .slideshow__media img {
+  position: relative;
+  top: auto;
+  left: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+slideshow-component .slideshow__media picture {
+  position: relative;
+  top: auto;
+  left: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+slideshow-component .slideshow__media picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* --- Media (custom class to avoid conflict with Dawn .media) --- */
+
+slideshow-component .si-media {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+slideshow-component .si-media::before {
+  display: none !important;
+}
+
+slideshow-component .si-media img,
+slideshow-component .si-media picture {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+  height: auto;
+}
+
+slideshow-component .si-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* --- Placeholder SVG (scoped) --- */
+
+slideshow-component .si-placeholder-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Grid helpers (custom classes to avoid conflict with Dawn .grid) --- */
+
+slideshow-component .si-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+}
+
+slideshow-component .si-grid--1-col .si-grid__item {
+  max-width: 100%;
+  width: 100%;
+}

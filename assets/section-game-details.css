@@ -1,0 +1,32 @@
+.game-details__inner {
+  padding-top: var(--section-padding-top, 3.6rem);
+  padding-bottom: var(--section-padding-bottom, 3.6rem);
+}
+
+.game-details__facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.6rem 3.2rem;
+  margin: 2rem 0 0;
+}
+
+.game-details__fact {
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.15);
+  padding-bottom: 1.2rem;
+}
+
+.game-details__fact dt {
+  color: rgba(var(--color-foreground), 0.7);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.game-details__fact dd {
+  margin: 0.4rem 0 0;
+}
+
+@media screen and (max-width: 749px) {
+  .game-details__facts {
+    grid-template-columns: 1fr;
+  }
+}
