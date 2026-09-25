@@ -1,0 +1,137 @@
+{{ 'section-product-hero.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign hero_variant = product.selected_or_first_available_variant
+  assign hero_image = product.images.first | default: product.featured_media.preview_image
+  assign designer = product.metafields.custom.disenador_del_juego
+  assign designer_text = blank
+  if designer != blank and designer.value != blank
+    if designer.type contains 'list'
+      assign designer_text = designer.value | join: ', '
+    else
+      assign designer_text = designer.value
+    endif
+  endif
+  assign product_form_id = 'product-hero-form-' | append: section.id
+-%}
+
+<section
+  class="product-hero"
+  style="--product-hero-background: {{ section.settings.background_color }};"
+>
+  <div class="product-hero__inner page-width">
+    <div class="product-hero__content">
+      {%- if product.vendor != blank -%}
+        <p class="product-hero__vendor">{{ product.vendor | escape }}</p>
+      {%- endif -%}
+
+      <h1 class="product-hero__title">{{ product.title | escape }}</h1>
+
+      <div id="price-{{ section.id }}" role="status">
+        {%- render 'price', product: product, use_variant: true, show_badges: false, price_class: 'product-hero__price' -%}
+      </div>
+
+      {%- if section.settings.show_add_to_cart or section.settings.show_buy_now -%}
+        <product-form class="product-form" data-section-id="{{ section.id }}">
+          <div class="product-form__error-message-wrapper" role="alert" hidden>
+            <span class="product-form__error-message"></span>
+          </div>
+
+          {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+            <input
+              type="hidden"
+              name="id"
+              value="{{ hero_variant.id }}"
+              class="product-variant-id"
+              {% unless hero_variant.available %}disabled{% endunless %}
+            >
+            <div class="product-hero__actions">
+              {%- if section.settings.show_add_to_cart -%}
+                <button
+                  id="ProductSubmitButton-{{ section.id }}"
+                  type="submit"
+                  name="add"
+                  class="product-form__submit button button--full-width {% if section.settings.show_buy_now %}button--secondary{% else %}button--primary{% endif %}"
+                  {% unless hero_variant.available %}disabled{% endunless %}
+                >
+                  <span>
+                    {%- if hero_variant == null -%}
+                      {{ 'products.product.unavailable' | t }}
+                    {%- elsif hero_variant.available == false -%}
+                      {{ 'products.product.sold_out' | t }}
+                    {%- else -%}
+                      {{ 'products.product.add_to_cart' | t }}
+                    {%- endif -%}
+                  </span>
+                </button>
+              {%- endif -%}
+
+              {%- if section.settings.show_buy_now -%}
+                {{ form | payment_button }}
+              {%- endif -%}
+            </div>
+          {%- endform -%}
+        </product-form>
+      {%- endif -%}
+    </div>
+
+    <div class="product-hero__media-column">
+      {%- if hero_image != blank -%}
+        <div class="product-hero__media">
+          {{
+            hero_image
+            | image_url: width: 1800
+            | image_tag:
+              widths: '375, 550, 750, 1100, 1500, 1800',
+              sizes: '(min-width: 750px) 50vw, 100vw',
+              loading: 'eager',
+              class: 'product-hero__image',
+              alt: hero_image.alt | default: product.title
+          }}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.show_designer and designer_text != blank -%}
+        <p class="product-hero__designer">
+          {{ 'sections.game_details.facts.designer' | t }}: {{ designer_text | escape }}
+        </p>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.product_hero.name",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": { "templates": ["product"] },
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "#ffffff",
+      "label": "t:sections.product_hero.settings.background_color.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_add_to_cart",
+      "default": true,
+      "label": "t:sections.product_hero.settings.show_add_to_cart.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_buy_now",
+      "default": true,
+      "label": "t:sections.product_hero.settings.show_buy_now.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_designer",
+      "default": true,
+      "label": "t:sections.product_hero.settings.show_designer.label"
+    }
+  ],
+  "presets": [{ "name": "t:sections.product_hero.name" }]
+}
+{% endschema %}

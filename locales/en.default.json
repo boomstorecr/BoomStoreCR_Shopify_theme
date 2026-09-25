@@ -355,6 +355,21 @@
         "designer": "Game designer"
       }
     },
+    "product_hero": {
+      "name": "Product hero",
+      "settings": {
+        "background_color": { "label": "Background color" },
+        "show_add_to_cart": { "label": "Show add to cart" },
+        "show_buy_now": { "label": "Show buy now" },
+        "show_designer": { "label": "Show designer" }
+      }
+    },
+    "product_showcase": {
+      "name": "Product showcase",
+      "settings": {
+        "heading": { "label": "Heading", "default": "Game details" }
+      }
+    },
     "countdown": {
       "editor_hint": "Add a future deadline to display the countdown.",
       "units": {

@@ -357,6 +357,21 @@
         "designer": "Diseñador del juego"
       }
     },
+    "product_hero": {
+      "name": "Hero del producto",
+      "settings": {
+        "background_color": { "label": "Color de fondo" },
+        "show_add_to_cart": { "label": "Mostrar agregar al carrito" },
+        "show_buy_now": { "label": "Mostrar comprar ahora" },
+        "show_designer": { "label": "Mostrar diseñador" }
+      }
+    },
+    "product_showcase": {
+      "name": "Presentación del producto",
+      "settings": {
+        "heading": { "label": "Encabezado", "default": "Detalles del juego" }
+      }
+    },
     "countdown": {
       "editor_hint": "Agrega una fecha futura para mostrar la cuenta regresiva.",
       "units": {
